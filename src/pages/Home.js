@@ -19,7 +19,7 @@ const Home = () => {
       console.log(data)
 
       if (response.status === 200) {
-        // setWorkouts(data)
+        // dispatch the new workouts
         dispatch(getWorkout(data))
       }
     }

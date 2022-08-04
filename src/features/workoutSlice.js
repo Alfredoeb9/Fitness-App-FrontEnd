@@ -17,6 +17,10 @@ export const workoutSlice = createSlice({
 
     createWorkout: (state, action ) => {
       state.workout = [action.payload, ...state.workout]
+    }, 
+
+    deleteWorkout: (state, action) => {
+      state.workout = state.workout.filter((workout) => workout._id !== action.payload._id)
     }
     // logout: (state) => {
     //   state.user = null;
@@ -25,7 +29,7 @@ export const workoutSlice = createSlice({
   },
 });
 
-export const { getWorkout, createWorkout } = workoutSlice.actions;
+export const { getWorkout, createWorkout, deleteWorkout } = workoutSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
