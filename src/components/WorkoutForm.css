@@ -1,5 +1,5 @@
-<<<<<<< HEAD
-label, input {
+label,
+input {
   display: block;
 }
 
@@ -33,40 +33,4 @@ div.error {
 
 input.error {
   border: 1px solid var(--error);
-=======
-label, input {
-  display: block;
-}
-
-input {
-  padding: 10px;
-  margin-top: 10px;
-  width: 100%;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-form button {
-  background: var(--primary);
-  border: 0;
-  color: #fff;
-  padding: 10px;
-  font-family: "Poppins";
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-div.error {
-  padding: 10px;
-  background: #ffefef;
-  border: 1px solid var(--error);
-  color: var(--error);
-  border-radius: 4px;
-  margin: 20px 0;
-}
-
-input.error {
-  border: 1px solid var(--error);
->>>>>>> 7154eaf8395e3cde691727c07bd657214ecdb89b
 }
