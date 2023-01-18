@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
@@ -8,6 +9,18 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 const container = document.getElementById("root");
+=======
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import { Provider } from 'react-redux';
+import { store } from './app/store';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+
+const container = document.getElementById('root');
+>>>>>>> 7154eaf8395e3cde691727c07bd657214ecdb89b
 const root = createRoot(container);
 
 root.render(

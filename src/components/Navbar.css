@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 header {
   background: #fff;
 }
@@ -12,4 +13,20 @@ header > .nav_container {
 header > .nav_container > a {
   color: #333;
   text-decoration: none;
+=======
+header {
+  background: #fff;
+}
+header > .nav_container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header > .nav_container > a {
+  color: #333;
+  text-decoration: none;
+>>>>>>> 7154eaf8395e3cde691727c07bd657214ecdb89b
 }

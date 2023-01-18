@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 .home {
   display: grid;
   grid-template-columns: 3fr 1fr;
   gap: 100px;
+=======
+.home {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 100px;
+>>>>>>> 7154eaf8395e3cde691727c07bd657214ecdb89b
 }
