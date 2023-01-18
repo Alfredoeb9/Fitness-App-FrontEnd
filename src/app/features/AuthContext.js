@@ -12,12 +12,27 @@
 //     });
 
 // }
-
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   user: null,
 };
+
+// const ParseUser = () => {
+//   const dispatch = useDispatch();
+
+//   useEffect(() => {
+//     const user = JSON.parse(localStorage.getItem("user"));
+
+//     if (user) {
+//       dispatch(login(user));
+//     }
+//   }, []);
+// };
+
+// ParseUser();
 
 export const userAuthSlice = createSlice({
   name: "user",

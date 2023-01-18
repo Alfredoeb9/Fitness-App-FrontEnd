@@ -1,9 +1,13 @@
 import "./Navbar.css";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { useLogout } from "../hooks/useLogout";
+import { userAuthSlice, selectUserAuth } from "../app/features/AuthContext";
 
 const Navbar = () => {
+  const user = useSelector(selectUserAuth);
   const { logout2 } = useLogout();
+  // const { user } = userAuthSlice();
 
   const handleClick = () => {
     logout2();
@@ -18,6 +22,7 @@ const Navbar = () => {
 
         <nav>
           <div>
+            <span>{user && user.email}</span>
             <button onClick={handleClick}>Log out</button>
           </div>
           <div>
