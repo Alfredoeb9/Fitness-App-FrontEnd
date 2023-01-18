@@ -1,7 +1,10 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import { useLogin } from "../hooks/useLogin";
+import { userAuthSlice, selectUserAuth } from "../app/features/AuthContext";
 
 function Login() {
+  const user = useSelector(selectUserAuth);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { login2, error, isLoading } = useLogin();
@@ -14,7 +17,6 @@ function Login() {
 
   return (
     <form className="login" onSubmit={handleSubmit}>
-      {/* <div className="login"> */}
       <h3>Log In</h3>
 
       <label>Email:</label>
@@ -35,7 +37,6 @@ function Login() {
         Log in
       </button>
       {error && <div className="error">{error}</div>}
-      {/* </div> */}
     </form>
   );
 }

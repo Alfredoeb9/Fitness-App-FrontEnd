@@ -16,8 +16,6 @@ const Home = () => {
       const response = await axios.get("/api/workouts");
       const data = await response.data;
 
-      console.log(data);
-
       if (response.status === 200) {
         // dispatch the new workouts
         dispatch(getWorkout(data));
@@ -26,8 +24,6 @@ const Home = () => {
 
     fetchAllWorkouts();
   }, [dispatch]);
-
-  // console.log(workout)
 
   return (
     <div className="home">

@@ -21,14 +21,17 @@ const Navbar = () => {
         </Link>
 
         <nav>
-          <div>
-            <span>{user && user.email}</span>
-            <button onClick={handleClick}>Log out</button>
-          </div>
-          <div>
-            <Link to="/login">login</Link>
-            <Link to="/signup">signup</Link>
-          </div>
+          {user ? (
+            <div>
+              <span>{user && user.email}</span>
+              <button onClick={handleClick}>Log out</button>
+            </div>
+          ) : (
+            <div>
+              <Link to="/login">login</Link>
+              <Link to="/signup">signup</Link>
+            </div>
+          )}
         </nav>
       </div>
     </header>
