@@ -1,15 +1,23 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { deleteWorkout } from "../app/features/workoutSlice";
+import { selectUserAuth } from "../app/features/AuthContext";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import "./WorkoutDetails.css";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 
 const WorkoutDetails = ({ workout }) => {
   const dispatch = useDispatch();
+  const user = useSelector(selectUserAuth);
 
   const handleClick = async () => {
+    if (!user) {
+      return;
+    }
     const response = await fetch(`/api/workouts/${workout._id}`, {
       method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${user.token}`,
+      },
     });
     const data = await response.json();
 

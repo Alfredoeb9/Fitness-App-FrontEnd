@@ -2,10 +2,12 @@ import axios from "axios";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createWorkout } from "../app/features/workoutSlice";
+import { selectUserAuth } from "../app/features/AuthContext";
 import "./WorkoutForm.css";
 
 const WorkoutForm = () => {
   const dispatch = useDispatch();
+  const user = useSelector(selectUserAuth);
   const [title, setTitle] = useState("");
   const [load, setLoad] = useState("");
   const [reps, setReps] = useState("");
@@ -15,6 +17,11 @@ const WorkoutForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (!user) {
+      setError("You must be logged");
+      return;
+    }
+
     const workout = { title, load, reps };
 
     const response = await fetch("/api/workouts", {
@@ -22,6 +29,7 @@ const WorkoutForm = () => {
       body: JSON.stringify(workout),
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${user.token}`,
       },
     });
 
