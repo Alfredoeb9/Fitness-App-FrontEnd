@@ -15,12 +15,15 @@ const WorkoutDetails = ({ workout }) => {
     if (!user) {
       return;
     }
-    const response = await fetch(`${process.env.REACT_API_URL}${workout._id}`, {
-      method: "DELETE",
-      headers: {
-        Authorization: `Bearer ${user.token}`,
-      },
-    });
+    const response = await fetch(
+      `https://a1fitness-app-frontend.herokuapp.com/${workout._id}`,
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      }
+    );
     const data = await response.json();
 
     if (response.ok) {
