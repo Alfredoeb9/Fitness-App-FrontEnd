@@ -45,6 +45,6 @@ export function getCookie(cookieName) {
 export function handleRedirect(user) {
   setTimeout(() => {
     // if (!user) return;
-    window.location.replace(process.env.REACT_APP_ROOT_URL);
+    window.location.replace("https://musical-mousse-92b309.netlify.app");
   }, 500);
 }
