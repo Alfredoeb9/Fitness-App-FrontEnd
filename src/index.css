@@ -1,18 +1,31 @@
 /* google font */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap");
-
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
 /* layout */
 :root {
   --primary: #1aac83;
   --error: #e7195a;
 }
 body {
-  background: #f1f1f1;
+  background: #222;
   margin: 0;
   font-family: "Poppins";
 }
 header {
-  background: #fff;
+  background: #666;
 }
 header .container {
   max-width: 1400px;
@@ -23,7 +36,7 @@ header .container {
   justify-content: space-between;
 }
 header a {
-  color: #333;
+  color: rgb(155, 0, 0) !important;
   text-decoration: none;
 }
 .pages {
@@ -103,6 +116,16 @@ input.error {
 }
 
 /* navbar */
+
+.nav {
+  background-color: #444;
+  color: #f1f1f1;
+}
+
+nav div a h1 {
+  color: red;
+}
+
 nav {
   display: flex;
   align-items: center;

@@ -13,3 +13,8 @@ header > .nav_container > a {
   color: #333;
   text-decoration: none;
 }
+
+.title_span {
+  font-size: 32px;
+  color: goldenrod;
+}

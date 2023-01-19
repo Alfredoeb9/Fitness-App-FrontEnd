@@ -1,6 +1,9 @@
 import axios from "axios";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
+import Switch from "@mui/material/Switch";
+import MenuItem from "@mui/material/MenuItem";
 import { createWorkout } from "../app/features/workoutSlice";
 import { selectUserAuth } from "../app/features/AuthContext";
 import "./WorkoutForm.css";
@@ -14,6 +17,8 @@ const WorkoutForm = () => {
   const [sets, setSets] = useState(0);
   const [error, setError] = useState("");
   const [emptyFields, setEmptyFields] = useState([]);
+
+  const label = { inputProps: { "aria-label": "Track Calories Burned" } };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -90,6 +95,32 @@ const WorkoutForm = () => {
         value={sets}
         className={emptyFields.includes("sets") ? "error" : ""}
       />
+
+      <div>
+        <Switch {...label} label="Track Calories Burned" />
+        <Select
+          labelId="calories-dropDown"
+          id="calories-dropDown"
+          label="calories-dropDown"
+          // onChange={handleChange}
+        >
+          <label>Reps:</label>
+          <input
+            type="text"
+            onChange={(e) => setReps(e.target.value)}
+            value={reps}
+            className={emptyFields.includes("reps") ? "error" : ""}
+          />
+
+          <label>Sets</label>
+          <input
+            type="number"
+            onChange={(e) => setSets(e.target.value)}
+            value={sets}
+            className={emptyFields.includes("sets") ? "error" : ""}
+          />
+        </Select>
+      </div>
 
       <button>Add Workout</button>
 

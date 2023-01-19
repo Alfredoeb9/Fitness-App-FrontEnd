@@ -2,8 +2,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteWorkout } from "../app/features/workoutSlice";
 import { selectUserAuth } from "../app/features/AuthContext";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
+import { compareAsc, format } from "date-fns";
 import "./WorkoutDetails.css";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
+import { capitalizeFirstLetter } from "../utils/capFirstLetter";
 
 const WorkoutDetails = ({ workout }) => {
   const dispatch = useDispatch();
@@ -29,7 +31,9 @@ const WorkoutDetails = ({ workout }) => {
 
   return (
     <div className="workOutDetails">
-      <h4>{workout.title}</h4>
+      <h4 style={{ color: "goldenrod" }}>
+        {capitalizeFirstLetter(workout.title)}
+      </h4>
       <p>
         <strong>Load (kg): </strong>
         {workout.load}
@@ -42,9 +46,7 @@ const WorkoutDetails = ({ workout }) => {
         <strong>Sets: </strong>
         {workout.sets}
       </p>
-      <p>
-        {formatDistanceToNow(new Date(workout.createdAt), { addSuffix: true })}
-      </p>
+      <p>{format(new Date(workout.createdAt), "yyyy-MM-dd")}</p>
 
       <DeleteOutlinedIcon variant="contained" onClick={handleClick} />
     </div>
