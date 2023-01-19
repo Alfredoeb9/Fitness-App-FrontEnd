@@ -20,7 +20,7 @@ function App() {
     if (user) {
       dispatch(login(user));
     }
-  }, []);
+  }, [dispatch]);
   return (
     <div className="app">
       <BrowserRouter>

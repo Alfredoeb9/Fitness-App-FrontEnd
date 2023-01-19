@@ -11,7 +11,7 @@ function PrivateRoutes() {
     <Outlet />
   ) : (
     <Navigate
-      to="/signup"
+      to="/login"
       state={{
         from: location,
       }}

@@ -1,5 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useSignup } from "../hooks/useSignup";
+import { handleRedirect } from "../utils/helperAuthentication";
+import { userAuthSlice, selectUserAuth } from "../app/features/AuthContext";
 
 function Signup() {
   const [email, setEmail] = useState("");
@@ -7,6 +10,13 @@ function Signup() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const { signup, error, isLoading } = useSignup();
+  const user = useSelector(selectUserAuth);
+
+  useEffect(() => {
+    if (user !== null) {
+      handleRedirect(user);
+    }
+  }, [user]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

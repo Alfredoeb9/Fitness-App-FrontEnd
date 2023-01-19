@@ -41,3 +41,10 @@ export function getCookie(cookieName) {
       */
   return cookie[cookieName];
 }
+
+export function handleRedirect(user) {
+  setTimeout(() => {
+    // if (!user) return;
+    window.location.replace(process.env.REACT_APP_ROOT_URL);
+  }, 500);
+}

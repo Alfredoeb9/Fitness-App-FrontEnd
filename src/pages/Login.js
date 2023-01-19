@@ -1,13 +1,20 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useLogin } from "../hooks/useLogin";
 import { userAuthSlice, selectUserAuth } from "../app/features/AuthContext";
+import { handleRedirect } from "../utils/helperAuthentication";
 
 function Login() {
   const user = useSelector(selectUserAuth);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { login2, error, isLoading } = useLogin();
+
+  useEffect(() => {
+    if (user !== null) {
+      handleRedirect(user);
+    }
+  }, [user]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
