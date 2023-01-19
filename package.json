@@ -1,4 +1,5 @@
 {
+  "proxy": "https://a1fitness-app-frontend.herokuapp.com",
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
