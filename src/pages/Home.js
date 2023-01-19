@@ -15,11 +15,14 @@ const Home = () => {
 
   useEffect(() => {
     const fetchAllWorkouts = async () => {
-      const response = await axios.get("/api/workouts", {
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-      });
+      const response = await axios.get(
+        `${process.env.REACT_API_URL}/api/workouts`,
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
+      );
       const data = await response.data;
 
       if (response.status === 200) {
