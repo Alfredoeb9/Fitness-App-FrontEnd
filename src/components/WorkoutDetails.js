@@ -16,7 +16,7 @@ const WorkoutDetails = ({ workout }) => {
       return;
     }
     const response = await fetch(
-      `https://a1fitness-app-frontend.herokuapp.com/${workout._id}`,
+      `https://a1fitness-app-frontend.herokuapp.com/api/workouts/${workout._id}`,
       {
         method: "DELETE",
         headers: {
