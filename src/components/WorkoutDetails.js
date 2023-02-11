@@ -99,7 +99,7 @@ function ModalTest({ workout2, user, setModal }) {
     const workout = { title2, load2, reps2, sets2 };
 
     const response = await fetch(
-      `http://localhost:4000/api/workouts/${workout2._id}`,
+      `https://a1fitness-app-frontend.herokuapp.com/api/workouts/${workout2._id}`,
       {
         method: "PUT",
         body: JSON.stringify(workout),
