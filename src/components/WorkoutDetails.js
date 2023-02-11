@@ -162,77 +162,76 @@ function ModalTest({ workout, user }) {
 
     //     dispatch(createWorkout(json));
     //   }
-    // };
-
-    return (
-      <div>
-        <form className="create" onSubmit={(e) => handleEditWorkout(e)}>
-          <h3>Add a new Workout</h3>
-
-          <label>Excersize Title: </label>
-
-          <input
-            type="text"
-            onChange={(e) => setTitle(e.target.value)}
-            value={title}
-            className={emptyFields.includes("title") ? "error" : ""}
-          />
-
-          <label>Load (lbs):</label>
-          <input
-            type="text"
-            onChange={(e) => setLoad(e.target.value)}
-            value={load}
-            className={emptyFields.includes("load") ? "error" : ""}
-          />
-
-          <label>Reps:</label>
-          <input
-            type="text"
-            onChange={(e) => setReps(e.target.value)}
-            value={reps}
-            className={emptyFields.includes("reps") ? "error" : ""}
-          />
-
-          <label>Sets</label>
-          <input
-            type="number"
-            onChange={(e) => setSets(e.target.value)}
-            value={sets}
-            className={emptyFields.includes("sets") ? "error" : ""}
-          />
-
-          <div>
-            <Switch {...label} label="Track Calories Burned" />
-            <Select
-              labelId="calories-dropDown"
-              id="calories-dropDown"
-              label="calories-dropDown"
-              // onChange={handleChange}
-            >
-              <label>Reps:</label>
-              <input
-                type="text"
-                onChange={(e) => setReps(e.target.value)}
-                value={reps}
-                className={emptyFields.includes("reps") ? "error" : ""}
-              />
-
-              <label>Sets</label>
-              <input
-                type="number"
-                onChange={(e) => setSets(e.target.value)}
-                value={sets}
-                className={emptyFields.includes("sets") ? "error" : ""}
-              />
-            </Select>
-          </div>
-
-          <button>Save Workout</button>
-
-          {error && <div className="error">{error}</div>}
-        </form>
-      </div>
-    );
   };
+
+  return (
+    <div>
+      <form className="create" onSubmit={(e) => handleEditWorkout(e)}>
+        <h3>Add a new Workout</h3>
+
+        <label>Excersize Title: </label>
+
+        <input
+          type="text"
+          onChange={(e) => setTitle(e.target.value)}
+          value={title}
+          className={emptyFields.includes("title") ? "error" : ""}
+        />
+
+        <label>Load (lbs):</label>
+        <input
+          type="text"
+          onChange={(e) => setLoad(e.target.value)}
+          value={load}
+          className={emptyFields.includes("load") ? "error" : ""}
+        />
+
+        <label>Reps:</label>
+        <input
+          type="text"
+          onChange={(e) => setReps(e.target.value)}
+          value={reps}
+          className={emptyFields.includes("reps") ? "error" : ""}
+        />
+
+        <label>Sets</label>
+        <input
+          type="number"
+          onChange={(e) => setSets(e.target.value)}
+          value={sets}
+          className={emptyFields.includes("sets") ? "error" : ""}
+        />
+
+        <div>
+          <Switch {...label} label="Track Calories Burned" />
+          <Select
+            labelId="calories-dropDown"
+            id="calories-dropDown"
+            label="calories-dropDown"
+            // onChange={handleChange}
+          >
+            <label>Reps:</label>
+            <input
+              type="text"
+              onChange={(e) => setReps(e.target.value)}
+              value={reps}
+              className={emptyFields.includes("reps") ? "error" : ""}
+            />
+
+            <label>Sets</label>
+            <input
+              type="number"
+              onChange={(e) => setSets(e.target.value)}
+              value={sets}
+              className={emptyFields.includes("sets") ? "error" : ""}
+            />
+          </Select>
+        </div>
+
+        <button>Save Workout</button>
+
+        {error && <div className="error">{error}</div>}
+      </form>
+    </div>
+  );
 }
