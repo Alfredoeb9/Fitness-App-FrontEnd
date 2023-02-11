@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Outlet, Navigate, useLocation } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { deleteWorkout, updateWorkout } from "../app/features/workoutSlice";
 import { selectUserAuth } from "../app/features/AuthContext";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
@@ -125,7 +127,7 @@ function ModalTest({ workout2, user, setModal }) {
       setSets2("");
       setError2(null);
       setEmptyFields2([]);
-      console.log(`Updating workout `, json);
+      toast.dark("Workout Updated...!");
       dispatch(updateWorkout(json));
       setModal(false);
     }
@@ -239,6 +241,7 @@ function ModalTest({ workout2, user, setModal }) {
         <button>Save Workout</button>
 
         {error2 && <div className="error">{error2}</div>}
+        <ToastContainer />
       </form>
     </div>
   );
