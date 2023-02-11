@@ -127,51 +127,10 @@ function ModalTest({ workout2, user, setModal }) {
       setSets2("");
       setError2(null);
       setEmptyFields2([]);
-      toast.dark("Workout Updated...!");
+      toast("Workout Updated...!");
       dispatch(updateWorkout(json));
       setModal(false);
     }
-
-    // const handleSubmit = async (e) => {
-    //   e.preventDefault();
-
-    //   if (!user) {
-    //     setError("You must be logged");
-    //     return;
-    //   }
-
-    //   const workout = { title, load, reps, sets };
-
-    //   const response = await fetch(
-    //     `https://a1fitness-app-frontend.herokuapp.com/api/workouts`,
-    //     {
-    //       method: "POST",
-    //       body: JSON.stringify(workout),
-    //       headers: {
-    //         "Content-Type": "application/json",
-    //         Authorization: `Bearer ${user.token}`,
-    //       },
-    //     }
-    //   );
-
-    //   const json = await response.json();
-
-    //   if (!response.ok) {
-    //     setError(json.error);
-    //     setEmptyFields(json.emptyFields);
-    //   }
-
-    //   if (response.ok) {
-    //     setTitle("");
-    //     setLoad("");
-    //     setReps("");
-    //     setSets("");
-    //     setError(null);
-    //     setEmptyFields([]);
-    //     console.log("new workout added ", json);
-
-    //     dispatch(createWorkout(json));
-    //   }
   };
 
   return (
@@ -213,7 +172,7 @@ function ModalTest({ workout2, user, setModal }) {
         />
 
         <div>
-          <Switch {...label} label="Track Calories Burned" />
+          {/* <Switch {...label} label="Track Calories Burned" /> */}
           <Select
             labelId="calories-dropDown"
             id="calories-dropDown"

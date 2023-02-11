@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 
 const initialState = {
   workout: null,
@@ -25,6 +26,7 @@ export const workoutSlice = createSlice({
     },
 
     updateWorkout: (state, action) => {
+      toast("MY SUCCESS");
       console.log(state.workout);
       console.log(action.payload);
       state.workout = state.workout.filter(

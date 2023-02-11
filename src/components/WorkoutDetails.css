@@ -39,9 +39,16 @@
   top: 0;
   right: 0;
   padding-right: 5px;
-  padding-top: 5px;
+}
+
+.workoutButtons > svg {
+  margin-top: 10px;
 }
 
 .workoutButtons > :hover {
   cursor: pointer;
+}
+
+.workoutButtons > svg:hover {
+  scale: 1.21;
 }
