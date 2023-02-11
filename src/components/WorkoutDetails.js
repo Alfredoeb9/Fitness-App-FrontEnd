@@ -96,6 +96,7 @@ function ModalTest({ workout }) {
         method: "PATCH",
         headers: {
           Authorization: `Bearer ${user.token}`,
+          "Access-Control-Allow-Methods": "*",
         },
       }
     );
