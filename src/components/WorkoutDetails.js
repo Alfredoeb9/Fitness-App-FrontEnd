@@ -93,7 +93,7 @@ function ModalTest({ workout }) {
     const response = await fetch(
       `https://a1fitness-app-frontend.herokuapp.com/api/workouts/${workout._id}`,
       {
-        method: "PATCH",
+        method: "PUT",
         headers: {
           Authorization: `Bearer ${user.token}`,
           "Access-Control-Allow-Methods": "*",
