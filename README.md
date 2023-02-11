@@ -1,4 +1,4 @@
-Musical Mousse is a web application that allows users to stream music and create their own playlists. The application is built with a focus on delivering an intuitive and enjoyable experience for users.
+Musical Mousse is a web application that allows users to track their workouts. The application is built with a focus on delivering an intuitive and enjoyable experience for users.
 
 ## Technologies Used
 
