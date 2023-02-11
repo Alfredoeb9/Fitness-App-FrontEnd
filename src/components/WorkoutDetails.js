@@ -65,16 +65,16 @@ const WorkoutDetails = ({ workout }) => {
         <EditIcon variant="contained" onClick={openModal} />
       </div>
 
-      {modal ? <ModalTest workout={workout} /> : ""}
+      {modal ? <ModalTest workout={workout} user={user} /> : ""}
     </div>
   );
 };
 
 export default WorkoutDetails;
 
-function ModalTest({ workout }) {
+function ModalTest({ workout, user }) {
   const dispatch = useDispatch();
-  const user = useSelector(selectUserAuth);
+  // const user = useSelector(selectUserAuth);
   const [title, setTitle] = useState("");
   const [load, setLoad] = useState("");
   const [reps, setReps] = useState("");
