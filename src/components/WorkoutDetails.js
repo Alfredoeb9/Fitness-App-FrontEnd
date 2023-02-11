@@ -90,10 +90,13 @@ function ModalTest({ workout, user }) {
       return;
     }
 
+    const workout = { title, load, reps, sets };
+
     const response = await fetch(
       `https://a1fitness-app-frontend.herokuapp.com/api/workouts/${workout._id}`,
       {
         method: "PUT",
+        body: JSON.stringify(workout),
         headers: {
           Authorization: `Bearer ${user.token}`,
           "Access-Control-Allow-Methods": "*",
@@ -101,124 +104,135 @@ function ModalTest({ workout, user }) {
       }
     );
 
-    const data = await response.json();
+    const json = await response.json();
+
+    if (!response.ok) {
+      setError(json.error);
+      setEmptyFields(json.emptyFields);
+    }
 
     if (response.ok) {
-      console.log(`Updating workout: ${data}`);
-      dispatch(updateWorkout(data));
+      setTitle("");
+      setLoad("");
+      setReps("");
+      setSets("");
+      setError(null);
+      setEmptyFields([]);
+      console.log(`Updating workout: ${json}`);
+      dispatch(updateWorkout(json));
     }
+
+    // const handleSubmit = async (e) => {
+    //   e.preventDefault();
+
+    //   if (!user) {
+    //     setError("You must be logged");
+    //     return;
+    //   }
+
+    //   const workout = { title, load, reps, sets };
+
+    //   const response = await fetch(
+    //     `https://a1fitness-app-frontend.herokuapp.com/api/workouts`,
+    //     {
+    //       method: "POST",
+    //       body: JSON.stringify(workout),
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //         Authorization: `Bearer ${user.token}`,
+    //       },
+    //     }
+    //   );
+
+    //   const json = await response.json();
+
+    //   if (!response.ok) {
+    //     setError(json.error);
+    //     setEmptyFields(json.emptyFields);
+    //   }
+
+    //   if (response.ok) {
+    //     setTitle("");
+    //     setLoad("");
+    //     setReps("");
+    //     setSets("");
+    //     setError(null);
+    //     setEmptyFields([]);
+    //     console.log("new workout added ", json);
+
+    //     dispatch(createWorkout(json));
+    //   }
+    // };
+
+    return (
+      <div>
+        <form className="create" onSubmit={(e) => handleEditWorkout(e)}>
+          <h3>Add a new Workout</h3>
+
+          <label>Excersize Title: </label>
+
+          <input
+            type="text"
+            onChange={(e) => setTitle(e.target.value)}
+            value={title}
+            className={emptyFields.includes("title") ? "error" : ""}
+          />
+
+          <label>Load (lbs):</label>
+          <input
+            type="text"
+            onChange={(e) => setLoad(e.target.value)}
+            value={load}
+            className={emptyFields.includes("load") ? "error" : ""}
+          />
+
+          <label>Reps:</label>
+          <input
+            type="text"
+            onChange={(e) => setReps(e.target.value)}
+            value={reps}
+            className={emptyFields.includes("reps") ? "error" : ""}
+          />
+
+          <label>Sets</label>
+          <input
+            type="number"
+            onChange={(e) => setSets(e.target.value)}
+            value={sets}
+            className={emptyFields.includes("sets") ? "error" : ""}
+          />
+
+          <div>
+            <Switch {...label} label="Track Calories Burned" />
+            <Select
+              labelId="calories-dropDown"
+              id="calories-dropDown"
+              label="calories-dropDown"
+              // onChange={handleChange}
+            >
+              <label>Reps:</label>
+              <input
+                type="text"
+                onChange={(e) => setReps(e.target.value)}
+                value={reps}
+                className={emptyFields.includes("reps") ? "error" : ""}
+              />
+
+              <label>Sets</label>
+              <input
+                type="number"
+                onChange={(e) => setSets(e.target.value)}
+                value={sets}
+                className={emptyFields.includes("sets") ? "error" : ""}
+              />
+            </Select>
+          </div>
+
+          <button>Save Workout</button>
+
+          {error && <div className="error">{error}</div>}
+        </form>
+      </div>
+    );
   };
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-
-  //   if (!user) {
-  //     setError("You must be logged");
-  //     return;
-  //   }
-
-  //   const workout = { title, load, reps, sets };
-
-  //   const response = await fetch(
-  //     `https://a1fitness-app-frontend.herokuapp.com/api/workouts`,
-  //     {
-  //       method: "POST",
-  //       body: JSON.stringify(workout),
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         Authorization: `Bearer ${user.token}`,
-  //       },
-  //     }
-  //   );
-
-  //   const json = await response.json();
-
-  //   if (!response.ok) {
-  //     setError(json.error);
-  //     setEmptyFields(json.emptyFields);
-  //   }
-
-  //   if (response.ok) {
-  //     setTitle("");
-  //     setLoad("");
-  //     setReps("");
-  //     setSets("");
-  //     setError(null);
-  //     setEmptyFields([]);
-  //     console.log("new workout added ", json);
-
-  //     dispatch(createWorkout(json));
-  //   }
-  // };
-
-  return (
-    <div>
-      <form className="create" onSubmit={(e) => handleEditWorkout(e)}>
-        <h3>Add a new Workout</h3>
-
-        <label>Excersize Title: </label>
-
-        <input
-          type="text"
-          onChange={(e) => setTitle(e.target.value)}
-          value={title}
-          className={emptyFields.includes("title") ? "error" : ""}
-        />
-
-        <label>Load (lbs):</label>
-        <input
-          type="text"
-          onChange={(e) => setLoad(e.target.value)}
-          value={load}
-          className={emptyFields.includes("load") ? "error" : ""}
-        />
-
-        <label>Reps:</label>
-        <input
-          type="text"
-          onChange={(e) => setReps(e.target.value)}
-          value={reps}
-          className={emptyFields.includes("reps") ? "error" : ""}
-        />
-
-        <label>Sets</label>
-        <input
-          type="number"
-          onChange={(e) => setSets(e.target.value)}
-          value={sets}
-          className={emptyFields.includes("sets") ? "error" : ""}
-        />
-
-        <div>
-          <Switch {...label} label="Track Calories Burned" />
-          <Select
-            labelId="calories-dropDown"
-            id="calories-dropDown"
-            label="calories-dropDown"
-            // onChange={handleChange}
-          >
-            <label>Reps:</label>
-            <input
-              type="text"
-              onChange={(e) => setReps(e.target.value)}
-              value={reps}
-              className={emptyFields.includes("reps") ? "error" : ""}
-            />
-
-            <label>Sets</label>
-            <input
-              type="number"
-              onChange={(e) => setSets(e.target.value)}
-              value={sets}
-              className={emptyFields.includes("sets") ? "error" : ""}
-            />
-          </Select>
-        </div>
-
-        <button>Save Workout</button>
-
-        {error && <div className="error">{error}</div>}
-      </form>
-    </div>
-  );
 }
