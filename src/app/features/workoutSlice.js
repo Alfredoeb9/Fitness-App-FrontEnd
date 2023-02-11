@@ -25,9 +25,12 @@ export const workoutSlice = createSlice({
     },
 
     updateWorkout: (state, action) => {
+      console.log(state.workout);
+      console.log(action.payload);
       state.workout = state.workout.filter(
         (workout) => workout._id !== action.payload._id
       );
+      state.workout = [action.payload, ...state.workout];
     },
   },
 });

@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Outlet, Navigate, useLocation } from "react-router-dom";
 import { deleteWorkout, updateWorkout } from "../app/features/workoutSlice";
 import { selectUserAuth } from "../app/features/AuthContext";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
@@ -65,22 +66,27 @@ const WorkoutDetails = ({ workout }) => {
         <EditIcon variant="contained" onClick={openModal} />
       </div>
 
-      {modal ? <ModalTest workout={workout} user={user} /> : ""}
+      {modal ? (
+        <ModalTest workout2={workout} user={user} setModal={setModal} />
+      ) : (
+        ""
+      )}
     </div>
   );
 };
 
 export default WorkoutDetails;
 
-function ModalTest({ workout, user }) {
+function ModalTest({ workout2, user, setModal }) {
   const dispatch = useDispatch();
+  const location = useLocation();
   // const user = useSelector(selectUserAuth);
-  const [title, setTitle] = useState("");
-  const [load, setLoad] = useState("");
-  const [reps, setReps] = useState("");
-  const [sets, setSets] = useState(0);
-  const [error, setError] = useState("");
-  const [emptyFields, setEmptyFields] = useState([]);
+  const [title2, setTitle2] = useState("");
+  const [load2, setLoad2] = useState("");
+  const [reps2, setReps2] = useState("");
+  const [sets2, setSets2] = useState(0);
+  const [error2, setError2] = useState("");
+  const [emptyFields2, setEmptyFields2] = useState([]);
 
   const label = { inputProps: { "aria-label": "Track Calories Burned" } };
 
@@ -90,16 +96,17 @@ function ModalTest({ workout, user }) {
       return;
     }
 
-    const workout = { title, load, reps, sets };
+    const workout = { title2, load2, reps2, sets2 };
 
     const response = await fetch(
-      `https://a1fitness-app-frontend.herokuapp.com/api/workouts/${workout._id}`,
+      `http://localhost:4000/api/workouts/${workout2._id}`,
       {
         method: "PUT",
         body: JSON.stringify(workout),
         headers: {
           Authorization: `Bearer ${user.token}`,
-          "Access-Control-Allow-Methods": "*",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Methods": "PUT",
         },
       }
     );
@@ -107,19 +114,20 @@ function ModalTest({ workout, user }) {
     const json = await response.json();
 
     if (!response.ok) {
-      setError(json.error);
-      setEmptyFields(json.emptyFields);
+      setError2(json.error);
+      setEmptyFields2(json.emptyFields);
     }
 
     if (response.ok) {
-      setTitle("");
-      setLoad("");
-      setReps("");
-      setSets("");
-      setError(null);
-      setEmptyFields([]);
-      console.log(`Updating workout: ${json}`);
+      setTitle2("");
+      setLoad2("");
+      setReps2("");
+      setSets2("");
+      setError2(null);
+      setEmptyFields2([]);
+      console.log(`Updating workout `, json);
       dispatch(updateWorkout(json));
+      setModal(false);
     }
 
     // const handleSubmit = async (e) => {
@@ -173,33 +181,33 @@ function ModalTest({ workout, user }) {
 
         <input
           type="text"
-          onChange={(e) => setTitle(e.target.value)}
-          value={title}
-          className={emptyFields.includes("title") ? "error" : ""}
+          onChange={(e) => setTitle2(e.target.value)}
+          value={title2}
+          className={emptyFields2.includes("title") ? "error" : ""}
         />
 
         <label>Load (lbs):</label>
         <input
           type="text"
-          onChange={(e) => setLoad(e.target.value)}
-          value={load}
-          className={emptyFields.includes("load") ? "error" : ""}
+          onChange={(e) => setLoad2(e.target.value)}
+          value={load2}
+          className={emptyFields2.includes("load") ? "error" : ""}
         />
 
         <label>Reps:</label>
         <input
           type="text"
-          onChange={(e) => setReps(e.target.value)}
-          value={reps}
-          className={emptyFields.includes("reps") ? "error" : ""}
+          onChange={(e) => setReps2(e.target.value)}
+          value={reps2}
+          className={emptyFields2.includes("reps") ? "error" : ""}
         />
 
         <label>Sets</label>
         <input
           type="number"
-          onChange={(e) => setSets(e.target.value)}
-          value={sets}
-          className={emptyFields.includes("sets") ? "error" : ""}
+          onChange={(e) => setSets2(e.target.value)}
+          value={sets2}
+          className={emptyFields2.includes("sets") ? "error" : ""}
         />
 
         <div>
@@ -213,24 +221,24 @@ function ModalTest({ workout, user }) {
             <label>Reps:</label>
             <input
               type="text"
-              onChange={(e) => setReps(e.target.value)}
-              value={reps}
-              className={emptyFields.includes("reps") ? "error" : ""}
+              onChange={(e) => setReps2(e.target.value)}
+              value={reps2}
+              className={emptyFields2.includes("reps") ? "error" : ""}
             />
 
             <label>Sets</label>
             <input
               type="number"
-              onChange={(e) => setSets(e.target.value)}
-              value={sets}
-              className={emptyFields.includes("sets") ? "error" : ""}
+              onChange={(e) => setSets2(e.target.value)}
+              value={sets2}
+              className={emptyFields2.includes("sets") ? "error" : ""}
             />
           </Select>
         </div>
 
         <button>Save Workout</button>
 
-        {error && <div className="error">{error}</div>}
+        {error2 && <div className="error">{error2}</div>}
       </form>
     </div>
   );

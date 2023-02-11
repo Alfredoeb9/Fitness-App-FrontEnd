@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getWorkout, selectWorkout } from "../app/features/workoutSlice";
+import {
+  getWorkout,
+  selectWorkout,
+  updateWorkout,
+} from "../app/features/workoutSlice";
 import { selectUserAuth } from "../app/features/AuthContext";
 import axios from "axios";
 import "./Home.css";
