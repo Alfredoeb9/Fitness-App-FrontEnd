@@ -30,3 +30,18 @@
   border-radius: 50%;
   color: #333;
 }
+
+.workoutButtons {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding-right: 5px;
+  padding-top: 5px;
+}
+
+.workoutButtons > :hover {
+  cursor: pointer;
+}
