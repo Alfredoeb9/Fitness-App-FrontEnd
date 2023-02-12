@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { userAuthSlice, login } from "./app/features/AuthContext";
 import Home from "./pages/Home";
+import Profile from "./pages/Profile";
 import Navbar from "./components/Navbar";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
@@ -29,6 +30,7 @@ function App() {
           <Routes>
             <Route element={<PrivateRoutes />}>
               <Route path="/" element={<Home />} />
+              <Route path="/profile" element={<Profile />} />
             </Route>
 
             <Route path="/signup" element={<Signup />} />

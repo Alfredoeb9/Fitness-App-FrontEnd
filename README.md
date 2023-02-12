@@ -16,5 +16,13 @@ The following technologies have been used to develop Musical Mousse:
 
     6. Netlify: A platform for deploying and hosting web applications.
 
+### TODO
+
+These are a list of features I want to integrate.
+
+    [] - Make mobile more appealing (current)
+    [] - Have a unique landing page
+    [] - Fix the profile page to edit users.
+
 License
 Musical Mousse is licensed under the MIT License.
