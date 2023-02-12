@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: 3fr 1fr;
   gap: 100px;
+  padding: 0px 30px;
 }
 
 @media screen and (max-width: 425px) {
@@ -9,6 +10,7 @@
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: none;
+    padding: 0px 10px;
   }
 
   .home > .create {
