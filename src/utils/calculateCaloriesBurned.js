@@ -80,5 +80,5 @@ export function calculateCaloriesBurned(workout) {
   caloriesBurned =
     (workout.duration * (MET * 3.5 * (workout.currentWeight / 2.2))) / 200;
 
-  return caloriesBurned;
+  return Math.round(caloriesBurned);
 }
