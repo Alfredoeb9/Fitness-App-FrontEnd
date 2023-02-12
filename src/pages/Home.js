@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -42,7 +43,7 @@ const Home = () => {
     } else {
       navigate("/login", { replace: true });
     }
-  }, [dispatch, user]);
+  }, [dispatch, navigate, user]);
 
   return (
     <div className="home">

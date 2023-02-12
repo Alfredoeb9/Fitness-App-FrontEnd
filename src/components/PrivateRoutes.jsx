@@ -1,7 +1,8 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-useless-escape */
 import React from "react";
 import { useSelector } from "react-redux";
 import { Outlet, useNavigate, useLocation, Navigate } from "react-router-dom";
-import { userAuthSlice, selectUserAuth } from "../app/features/AuthContext";
 
 window.mobileCheck = function () {
   let check = false;

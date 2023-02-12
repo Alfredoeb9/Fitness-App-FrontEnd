@@ -1,9 +1,7 @@
-import axios from "axios";
+/* eslint-disable no-unused-vars */
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
 import Switch from "@mui/material/Switch";
-import MenuItem from "@mui/material/MenuItem";
 import { createWorkout } from "../app/features/workoutSlice";
 import { selectUserAuth } from "../app/features/AuthContext";
 import "./WorkoutForm.css";
