@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-useless-escape */
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Outlet, useNavigate, useLocation, Navigate } from "react-router-dom";
 
@@ -8,7 +8,7 @@ function PrivateRoutes() {
   const location = useLocation();
   const { user } = useSelector((state) => state.user);
   const navigate = useNavigate();
-  let check = false;
+  const [check, setCheck] = useState(false);
   window.mobileCheck = function () {
     (function (a) {
       if (
@@ -19,7 +19,7 @@ function PrivateRoutes() {
           a.substr(0, 4)
         )
       )
-        check = true;
+        setCheck(true);
     })(navigator.userAgent || navigator.vendor || window.opera);
     console.log("on mobile");
     return check;
