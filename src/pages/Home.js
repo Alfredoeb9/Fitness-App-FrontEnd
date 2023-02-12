@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import {
   getWorkout,
   selectWorkout,
@@ -16,6 +17,7 @@ const Home = () => {
   const workouts = useSelector(selectWorkout);
   const user = useSelector(selectUserAuth);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchAllWorkouts = async () => {
@@ -37,6 +39,8 @@ const Home = () => {
 
     if (user) {
       fetchAllWorkouts();
+    } else {
+      navigate("/login", { replace: true });
     }
   }, [dispatch, user]);
 

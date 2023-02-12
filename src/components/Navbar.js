@@ -19,7 +19,7 @@ const Navbar = () => {
   return (
     <header className="nav">
       <div className="nav_container">
-        <Link to={"/"}>
+        <Link to={"/welcome"}>
           <h1>
             <span className="title_span">A1</span> Fitness Log
             <span className="title_span">ger</span>
@@ -27,6 +27,12 @@ const Navbar = () => {
         </Link>
 
         <nav>
+          <MenuItem>
+            <Link to="/">
+              {/* <Avatar sx={{ bgcolor: deepOrange[500] }}></Avatar> */}
+              <span className="">My Workouts</span>
+            </Link>
+          </MenuItem>
           {user ? (
             <div>
               {/* <span>{user && user.email}</span> */}

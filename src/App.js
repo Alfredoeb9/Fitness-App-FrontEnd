@@ -11,6 +11,7 @@ import NotFound from "./pages/NotFound";
 
 import "./App.css";
 import PrivateRoutes from "./components/PrivateRoutes";
+import Welcome from "./pages/Welcome";
 
 function App() {
   const dispatch = useDispatch();
@@ -32,7 +33,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/profile" element={<Profile />} />
             </Route>
-
+            <Route path="/welcome" element={<Welcome />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
             <Route path="*" element={<NotFound />} />
