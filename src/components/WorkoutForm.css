@@ -38,3 +38,22 @@ div.error {
 input.error {
   border: 1px solid var(--error);
 }
+
+.calories-dropDown {
+  visibility: visible;
+  transition: height 0.3s ease-in;
+  height: 250px;
+  width: auto;
+  background: #d8d8d8;
+}
+
+.calories-dropDown > * {
+  transition: height 0.35s ease-in 0.3s;
+}
+
+.hide-messages {
+  visibility: hidden;
+  transition: height 0.3s ease-in;
+  height: 0;
+  width: 0;
+}
