@@ -130,7 +130,15 @@ function ModalTest({ workout2, user, setModal }) {
       return;
     }
 
-    const workout = { title2, load2, reps2, sets2 };
+    const workout = {
+      title2,
+      load2,
+      reps2,
+      sets2,
+      activity2,
+      duration2,
+      currentWeight2,
+    };
 
     const response = await fetch(
       `https://a1fitness-app-frontend.herokuapp.com/api/workouts/${workout2._id}`,
