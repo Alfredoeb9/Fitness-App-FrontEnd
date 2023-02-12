@@ -30,13 +30,14 @@ function PrivateRoutes() {
   ) : check ? (
     navigate("/login", { replace: true })
   ) : (
-    <Navigate
-      to="/login"
-      state={{
-        from: location,
-      }}
-      replace={true}
-    />
+    navigate("/login", { replace: true })
+    // <Navigate
+    //   to="/login"
+    //   state={{
+    //     from: location,
+    //   }}
+    //   replace={true}
+    // />
   );
 }
 
