@@ -13,6 +13,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import Switch from "@mui/material/Switch";
 import { capitalizeFirstLetter } from "../utils/capFirstLetter";
+import { calculateCaloriesBurned } from "../utils/calculateCaloriesBurned";
 
 const WorkoutDetails = ({ workout }) => {
   const [modal, setModal] = useState(false);
@@ -61,6 +62,25 @@ const WorkoutDetails = ({ workout }) => {
         <strong>Sets: </strong>
         {workout.sets}
       </p>
+
+      <div className="trackCalories-ui">
+        <h2>Calories Tracked:</h2>
+        <p>
+          <strong>Activity: </strong>
+          {workout.activity}
+        </p>
+        <p>
+          <strong>Duration: </strong>
+          {workout.duration}
+        </p>
+        <p>
+          <strong>Current Weight: </strong>
+          {workout.currentWeight}
+        </p>
+
+        <p>{calculateCaloriesBurned(workout)}</p>
+      </div>
+
       <p>{format(new Date(workout.createdAt), "yyyy-MM-dd")}</p>
 
       <div className="workoutButtons">

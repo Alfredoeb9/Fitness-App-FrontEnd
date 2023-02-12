@@ -17,9 +17,9 @@ const WorkoutForm = () => {
   const [sets, setSets] = useState(0);
   const [error, setError] = useState("");
   const [emptyFields, setEmptyFields] = useState([]);
-  const [activity, setActivity] = useState();
-  const [duration, setDuration] = useState();
-  const [currentWeight, setCurrentWeight] = useState();
+  const [activity, setActivity] = useState("");
+  const [duration, setDuration] = useState("");
+  const [currentWeight, setCurrentWeight] = useState("");
   const [checked, setChecked] = useState(false);
 
   const handleCheckedChange = (event) => {
@@ -35,6 +35,10 @@ const WorkoutForm = () => {
       setError("You must be logged");
       return;
     }
+
+    console.log(activity);
+    console.log(duration);
+    console.log(currentWeight);
 
     const workout = {
       title,
@@ -73,9 +77,9 @@ const WorkoutForm = () => {
       setReps("");
       setSets("");
       setError(null);
-      setActivity();
-      setDuration();
-      setCurrentWeight();
+      setActivity("");
+      setDuration("");
+      setCurrentWeight("");
       setEmptyFields([]);
       console.log("new workout added ", json);
 
@@ -85,7 +89,7 @@ const WorkoutForm = () => {
 
   const handleTrackActivity = (e) => {
     e.preventDefault();
-    console.log(e.target.value);
+
     setActivity(e.target.value);
   };
 
@@ -156,24 +160,6 @@ const WorkoutForm = () => {
             </option>
             <option
               className="tt-suggestion tt-selectable"
-              value={"Aqua jogging"}
-            >
-              Aqua jogging
-            </option>
-            <option
-              className="tt-suggestion tt-selectable"
-              value={"BMX or mountain biking"}
-            >
-              BMX or mountain biking
-            </option>
-            <option
-              className="tt-suggestion tt-selectable"
-              value={"Backpacking"}
-            >
-              Backpacking
-            </option>
-            <option
-              className="tt-suggestion tt-selectable"
               value={"Baseball/softball"}
             >
               Baseball/softball
@@ -202,65 +188,8 @@ const WorkoutForm = () => {
             >
               Bodyweight exercises (vigorous effort)
             </option>
-            <option className="tt-suggestion tt-selectable" value={"Bowling"}>
-              Bowling
-            </option>
-            <option
-              className="tt-suggestion tt-selectable"
-              value={"Boxing (punching bag)"}
-            >
-              Boxing (punching bag)
-            </option>
-            <option
-              className="tt-suggestion tt-selectable"
-              value={"Boxing (sparring)"}
-            >
-              Boxing (sparring)
-            </option>
-            <option
-              className="tt-suggestion tt-selectable"
-              value={"Breastfeeding"}
-            >
-              Breastfeeding
-            </option>
-            <option
-              className="tt-suggestion tt-selectable"
-              value={"Canoeing/rowing (light effort)"}
-            >
-              Canoeing/rowing (light effort)
-            </option>
-            <option
-              className="tt-suggestion tt-selectable"
-              value={"Canoeing/rowing (moderate effort)"}
-            >
-              Canoeing/rowing (moderate effort)
-            </option>
-            <option
-              className="tt-suggestion tt-selectable"
-              value={"Canoeing/rowing (vigorous effort)"}
-            >
-              Canoeing/rowing (vigorous effort)
-            </option>
-            <option className="tt-suggestion tt-selectable" value={"Cleaning"}>
-              Cleaning
-            </option>
-            <option
-              className="tt-suggestion tt-selectable"
-              value={"Cross-country skiing (fast)"}
-            >
-              Cross-country skiing (fast)
-            </option>
-            <option
-              className="tt-suggestion tt-selectable"
-              value={"Cross-country skiing (moderate)"}
-            >
-              Cross-country skiing (moderate)
-            </option>
-            <option
-              className="tt-suggestion tt-selectable"
-              value={"Cross-country skiing (slow)"}
-            >
-              Cross-country skiing (slow)
+            <option className="tt-suggestion tt-selectable" value={"Boxing"}>
+              Boxing
             </option>
             <option
               className="tt-suggestion tt-selectable"
@@ -280,17 +209,8 @@ const WorkoutForm = () => {
             >
               Cycling (slow)
             </option>
-            <option
-              className="tt-suggestion tt-selectable"
-              value={"Field hockey"}
-            >
-              Field hockey
-            </option>
             <option className="tt-suggestion tt-selectable" value={"Football"}>
               Football
-            </option>
-            <option className="tt-suggestion tt-selectable" value={"Gardening"}>
-              Gardening
             </option>
             <option className="tt-suggestion tt-selectable" value={"Golf"}>
               Golf
@@ -351,69 +271,13 @@ const WorkoutForm = () => {
             >
               Rock climbing
             </option>
-            <option
-              className="tt-suggestion tt-selectable"
-              value={"Roller skating"}
-            >
-              Roller skating
-            </option>
             <option className="tt-suggestion tt-selectable" value={"Rugby"}>
               Rugby
             </option>
-            <option
-              className="tt-suggestion tt-selectable"
-              value={"Running (10 min/mile)"}
-            >
-              Running (10 min/mile)
+            <option className="tt-suggestion tt-selectable" value={"Running"}>
+              Running
             </option>
-            <option
-              className="tt-suggestion tt-selectable"
-              value={"Running (11 min/mile)"}
-            >
-              Running (11 min/mile)
-            </option>
-            <option
-              className="tt-suggestion tt-selectable"
-              value={"Running (12 min/mile)"}
-            >
-              Running (12 min/mile)
-            </option>
-            <option
-              className="tt-suggestion tt-selectable"
-              value={"Running (6 min/mile)"}
-            >
-              Running (6 min/mile)
-            </option>
-            <option
-              className="tt-suggestion tt-selectable"
-              value={"Running (7 min/mile)"}
-            >
-              Running (7 min/mile)
-            </option>
-            <option
-              className="tt-suggestion tt-selectable"
-              value={"Running (8 min/mile)"}
-            >
-              Running (8 min/mile)
-            </option>
-            <option
-              className="tt-suggestion tt-selectable"
-              value={"Running (9 min/mile)"}
-            >
-              Running (9 min/mile)
-            </option>
-            <option
-              className="tt-suggestion tt-selectable"
-              value={"Sailing/windsurfing"}
-            >
-              Sailing/windsurfing
-            </option>
-            <option
-              className="tt-suggestion tt-selectable"
-              value={"Scuba diving/freediving"}
-            >
-              Scuba diving/freediving
-            </option>
+
             <option
               className="tt-suggestion tt-selectable"
               value={"Ski exercise machine"}
@@ -423,9 +287,6 @@ const WorkoutForm = () => {
             <option className="tt-suggestion tt-selectable" value={"Skiing"}>
               Skiing
             </option>
-            <option className="tt-suggestion tt-selectable" value={"Sleeping"}>
-              Sleeping
-            </option>
             <option className="tt-suggestion tt-selectable" value={"Soccer"}>
               Soccer
             </option>
@@ -434,9 +295,6 @@ const WorkoutForm = () => {
               value={"Stair climber machine"}
             >
               Stair climber machine
-            </option>
-            <option className="tt-suggestion tt-selectable" value={"Standing"}>
-              Standing
             </option>
             <option
               className="tt-suggestion tt-selectable"
@@ -569,12 +427,6 @@ const WorkoutForm = () => {
               value={"Water polo"}
             >
               Water polo
-            </option>
-            <option
-              className="tt-suggestion tt-selectable"
-              value={"Water skiing"}
-            >
-              Water skiing
             </option>
             <option
               className="tt-suggestion tt-selectable"
