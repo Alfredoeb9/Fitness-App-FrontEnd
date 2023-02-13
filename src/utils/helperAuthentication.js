@@ -53,7 +53,9 @@ export function handleRedirect(user, path) {
       return <Navigate to={"/profile"} />;
     }
     if (user) {
-      return window.location.replace("http://localhost:3000/");
+      return window.location.replace(
+        "https://musical-mousse-92b309.netlify.app/"
+      );
     }
   }, 200);
 }

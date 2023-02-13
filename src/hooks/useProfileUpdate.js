@@ -12,15 +12,18 @@ export const useUpdateProfile = () => {
     setError(null);
     console.log(firstName, lastName, email);
 
-    const response = await fetch(`http://localhost:4000/api/user/updateuser`, {
-      method: "PUT",
-      headers: {
-        Authorization: `Bearer ${user.token}`,
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Methods": "PUT",
-      },
-      body: JSON.stringify({ firstName, lastName, email }),
-    });
+    const response = await fetch(
+      `https://a1fitness-app-frontend.herokuapp.com/api/user/updateuser`,
+      {
+        method: "PUT",
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Methods": "PUT",
+        },
+        body: JSON.stringify({ firstName, lastName, email }),
+      }
+    );
 
     const json = await response.json();
 
