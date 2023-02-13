@@ -21,7 +21,7 @@ The following technologies have been used to develop Musical Mousse:
 These are a list of features I want to integrate.
 
     [x] - Make mobile more appealing (current)
-    [] - Have a unique landing page
+    [x] - Have a unique landing page
     [] - Fix the profile page to edit users.
 
 License
