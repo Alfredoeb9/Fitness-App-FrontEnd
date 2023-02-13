@@ -12,8 +12,9 @@ function PrivateRoutes() {
   const [check, setCheck] = useState(false);
   const [width, setWidth] = useState(window.innerWidth);
 
-  handleWindowSizeChange(setWidth, window);
-
+  function handleWindowSizeChange() {
+    setWidth(window.innerWidth);
+  }
   useEffect(() => {
     window.addEventListener("resize", handleWindowSizeChange);
     return () => {
