@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import {
   getWorkout,
   selectWorkout,
@@ -15,6 +15,7 @@ import WorkoutForm from "../components/WorkoutForm";
 
 const Home = () => {
   // const [workouts, setWorkouts] = useState(null);
+  const location = useLocation();
   const workouts = useSelector(selectWorkout);
   const user = useSelector(selectUserAuth);
   const dispatch = useDispatch();
@@ -41,7 +42,8 @@ const Home = () => {
     if (user) {
       fetchAllWorkouts();
     } else {
-      navigate("/login", { replace: true });
+      // navigate("/login", { replace: true });
+      return <Navigate to="/welcome" state={{ from: location }} />;
     }
   }, [dispatch, navigate, user]);
 

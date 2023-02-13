@@ -28,16 +28,16 @@ function PrivateRoutes() {
   return user ? (
     <Outlet />
   ) : check ? (
-    navigate("/login", { replace: true })
+    navigate("/welcome", { replace: true })
   ) : (
-    navigate("/login", { replace: true })
-    // <Navigate
-    //   to="/login"
-    //   state={{
-    //     from: location,
-    //   }}
-    //   replace={true}
-    // />
+    // navigate("/welcome", { replace: true })
+    <Navigate
+      to="/login"
+      state={{
+        from: location,
+      }}
+      replace={true}
+    />
   );
 }
 
