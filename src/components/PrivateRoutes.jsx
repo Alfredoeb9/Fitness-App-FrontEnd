@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Outlet, useNavigate, useLocation, Navigate } from "react-router-dom";
+import { handleWindowSizeChange } from "../utils/windowSizeChange";
 
 function PrivateRoutes() {
   const location = useLocation();
@@ -11,9 +12,8 @@ function PrivateRoutes() {
   const [check, setCheck] = useState(false);
   const [width, setWidth] = useState(window.innerWidth);
 
-  function handleWindowSizeChange() {
-    setWidth(window.innerWidth);
-  }
+  handleWindowSizeChange(setWidth, window);
+
   useEffect(() => {
     window.addEventListener("resize", handleWindowSizeChange);
     return () => {
