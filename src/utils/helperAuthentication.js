@@ -1,4 +1,5 @@
 import { serialize, parse } from "cookie";
+import { Navigate } from "react-router-dom";
 
 export const MAX_AGE = 60 * 60 * 24 * 30;
 
@@ -42,9 +43,17 @@ export function getCookie(cookieName) {
   return cookie[cookieName];
 }
 
-export function handleRedirect(user) {
+export function handleRedirect(user, path) {
   setTimeout(() => {
-    // if (!user) return;
-    window.location.replace("https://musical-mousse-92b309.netlify.app");
-  }, 500);
+    if (!user)
+      return window.location.replace(
+        "https://musical-mousse-92b309.netlify.app/login"
+      );
+    if (path === "profile") {
+      return <Navigate to={"/profile"} />;
+    }
+    if (user) {
+      return window.location.replace("http://localhost:3000/");
+    }
+  }, 200);
 }

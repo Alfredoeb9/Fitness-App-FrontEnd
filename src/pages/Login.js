@@ -12,7 +12,7 @@ function Login() {
 
   useEffect(() => {
     if (user !== null) {
-      handleRedirect(user);
+      handleRedirect(user, "/");
     }
   }, [user]);
 

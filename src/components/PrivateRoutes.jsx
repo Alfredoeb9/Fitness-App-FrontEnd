@@ -22,6 +22,8 @@ function PrivateRoutes() {
     };
   }, []);
 
+  console.log(width);
+
   const isMobile = width <= 768;
 
   return user ? (

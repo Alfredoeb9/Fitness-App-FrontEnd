@@ -47,10 +47,18 @@ export const userAuthSlice = createSlice({
     logout: (state) => {
       state.user = null;
     },
+    updateUser: (state, action) => {
+      // console.log(state.workout);
+      // console.log(action.payload);
+      // state.workout = state.workout.filter(
+      //   (workout) => workout._id !== action.payload._id
+      // );
+      state.user = action.payload;
+    },
   },
 });
 
-export const { login, logout } = userAuthSlice.actions;
+export const { login, logout, updateUser } = userAuthSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of

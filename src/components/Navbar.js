@@ -37,7 +37,7 @@ const Navbar = () => {
             <div>
               {/* <span>{user && user.email}</span> */}
               <Avatar sx={{ bgcolor: deepOrange[500] }}>
-                {user.email.charAt(0)}
+                {user?.email?.charAt(0)}
                 <Select
                   labelId="profile-dropDown"
                   // id="demo-simple-select"
