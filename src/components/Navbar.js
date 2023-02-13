@@ -27,7 +27,7 @@ const Navbar = () => {
         </Link>
 
         <nav>
-          <MenuItem>
+          <MenuItem style={{ padding: "0px" }}>
             <Link to="/">
               {/* <Avatar sx={{ bgcolor: deepOrange[500] }}></Avatar> */}
               <span className="">My Workouts</span>

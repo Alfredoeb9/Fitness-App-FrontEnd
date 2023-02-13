@@ -16,7 +16,22 @@ header > .nav_container > a {
   text-decoration: none;
 }
 
+header > .nav_container > a > h1 {
+  font-size: 32px;
+}
+
 .title_span {
   font-size: 32px;
   color: goldenrod;
+}
+
+@media screen and (max-width: 425px) {
+  header > .nav_container > a > h1 {
+    font-size: 1.2rem;
+  }
+
+  .title_span {
+    font-size: 1.2rem;
+    color: goldenrod;
+  }
 }
