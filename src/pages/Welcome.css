@@ -13,6 +13,7 @@
 .welcome__container {
   width: 60%;
   padding-left: 5rem;
+  padding-right: 5rem;
   padding-top: 8rem;
   color: #fff;
 }
@@ -62,8 +63,9 @@
 
   .welcome__container {
     width: 100%;
-    padding-left: 2rem;
-    padding-top: 10rem;
+    padding-left: 1.4rem;
+    padding-right: 1.4rem;
+    padding-top: 4rem;
   }
 
   .welcome__container > h3 {
@@ -71,12 +73,12 @@
   }
 
   .welcome__container > h1 {
-    font-size: 2.8rem;
+    font-size: 2.3rem;
     padding-top: 1rem;
   }
 
   .welcome__container > p {
-    font-size: 1.9rem;
+    font-size: 1.3rem;
     font-weight: 100;
     padding-top: 1rem;
   }
