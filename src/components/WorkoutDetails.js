@@ -80,15 +80,15 @@ const WorkoutDetails = ({ workout }) => {
         </p>
         <p>
           <strong>Duration: </strong>
-          {workout.duration}
+          {workout.duration} (mins)
         </p>
         <p>
           <strong>Current Weight: </strong>
-          {workout.currentWeight}
+          {workout.currentWeight} (lbs)
         </p>
       </div>
 
-      <p>{format(new Date(workout.createdAt), "yyyy-MM-dd")}</p>
+      <p>Date: {format(new Date(workout.createdAt), "yyyy-MM-dd")}</p>
 
       <div className="workoutButtons">
         <DeleteOutlinedIcon variant="contained" onClick={handleClick} />
