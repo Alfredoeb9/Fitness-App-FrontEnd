@@ -22,7 +22,7 @@ These are a list of features I want to integrate.
 
     [x] - Make mobile more appealing (current)
     [x] - Have a unique landing page
-    [] - Fix the profile page to edit users.
+    [x] - Fix the profile page to edit users.
 
 License
 Musical Mousse is licensed under the MIT License.
