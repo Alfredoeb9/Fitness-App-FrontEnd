@@ -30,6 +30,9 @@ const WorkoutDetails = ({ workout }) => {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${user.token}`,
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Headers":
+            "Origin, X-Requested-With, Content-Type, Accept",
         },
       }
     );
