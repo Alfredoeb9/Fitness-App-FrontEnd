@@ -45,17 +45,12 @@ export function getCookie(cookieName) {
 
 export function handleRedirect(user, path) {
   setTimeout(() => {
-    if (!user)
-      return window.location.replace(
-        "https://musical-mousse-92b309.netlify.app/login"
-      );
+    if (!user) return <Navigate to={"/login"} replace={true} />;
     if (path === "profile") {
-      return <Navigate to={"/profile"} />;
+      return <Navigate to={"/profile"} replace={true} />;
     }
     if (user) {
-      return window.location.replace(
-        "https://musical-mousse-92b309.netlify.app/"
-      );
+      return <Navigate to={"/"} replace={true} />;
     }
   }, 200);
 }

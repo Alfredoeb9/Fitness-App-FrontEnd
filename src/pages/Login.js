@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import { Outlet, useNavigate, useLocation, Navigate } from "react-router-dom";
 import { useLogin } from "../hooks/useLogin";
 import { userAuthSlice, selectUserAuth } from "../app/features/AuthContext";
 import { handleRedirect } from "../utils/helperAuthentication";
 
 function Login() {
+  const navigate = useNavigate();
   const user = useSelector(selectUserAuth);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -12,9 +14,10 @@ function Login() {
 
   useEffect(() => {
     if (user !== null) {
-      handleRedirect(user, "/");
+      navigate("/", { replace: true });
+      // handleRedirect(user, "/");
     }
-  }, [user]);
+  }, [navigate, user]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
