@@ -14,7 +14,7 @@ The following technologies have been used to develop Musical Mousse:
 
     5. MongoDB: A NoSQL database used for storing data for the application.
 
-    6. Netlify: A platform for deploying and hosting web applications.
+    6. Vercel: A platform for deploying and hosting web applications.
 
 ### TODO
 
