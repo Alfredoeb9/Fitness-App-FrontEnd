@@ -1,4 +1,4 @@
-Musical Mousse is a web application that allows users to track their workouts. The application is built with a focus on delivering an intuitive and enjoyable experience for users.
+A1 Fitness is a web application that allows users to track their workouts. The application is built with a focus on delivering an intuitive and enjoyable experience for users.
 
 ## Technologies Used
 
@@ -23,6 +23,3 @@ These are a list of features I want to integrate.
     [x] - Make mobile more appealing (current)
     [x] - Have a unique landing page
     [x] - Fix the profile page to edit users.
-
-License
-Musical Mousse is licensed under the MIT License.
