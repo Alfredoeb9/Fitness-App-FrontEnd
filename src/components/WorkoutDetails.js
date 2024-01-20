@@ -23,7 +23,7 @@ const WorkoutDetails = ({ workout }) => {
       return;
     }
     const response = await fetch(
-      `${process.env.REACT_API_URL}/api/workouts/${workout._id}`,
+      `${process.env.REACT_APP_API_URL}/api/workouts/${workout._id}`,
       {
         method: "DELETE",
         headers: {
@@ -139,7 +139,7 @@ function ModalTest({ workout2, user, setModal }) {
     };
 
     const response = await fetch(
-      `${process.env.REACT_API_URL}/api/workouts/${workout2._id}`,
+      `${process.env.REACT_APP_API_URL}/api/workouts/${workout2._id}`,
       {
         method: "PUT",
         body: JSON.stringify(workout),

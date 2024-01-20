@@ -12,7 +12,7 @@ export const useUpdateProfile = () => {
     setError(null);
 
     const response = await fetch(
-      `${process.env.REACT_API_URL}/api/user/updateuser`,
+      `${process.env.REACT_APP_API_URL}/api/user/updateuser`,
       {
         method: "PUT",
         headers: {
