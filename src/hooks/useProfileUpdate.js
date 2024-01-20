@@ -10,7 +10,6 @@ export const useUpdateProfile = () => {
   const updateProfile = async (firstName, lastName, email, user) => {
     setIsLoading(true);
     setError(null);
-    console.log(firstName, lastName, email);
 
     const response = await fetch(
       `https://a1fitness-app-frontend.herokuapp.com/api/user/updateuser`,

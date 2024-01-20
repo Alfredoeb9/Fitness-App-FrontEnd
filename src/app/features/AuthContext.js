@@ -1,38 +1,8 @@
-// import { createContext, useReducer } from 'react';
-
-// export const AuthContext = createContext();
-
-// export const authReducer = (state, action) => {
-
-// }
-
-// export const AuthContextProvider = ({ children }) => {
-//     const [state, dispatch] = useReducer(authReducer, {
-//         user: null
-//     });
-
-// }
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   user: null,
 };
-
-// const ParseUser = () => {
-//   const dispatch = useDispatch();
-
-//   useEffect(() => {
-//     const user = JSON.parse(localStorage.getItem("user"));
-
-//     if (user) {
-//       dispatch(login(user));
-//     }
-//   }, []);
-// };
-
-// ParseUser();
 
 export const userAuthSlice = createSlice({
   name: "user",
@@ -48,11 +18,6 @@ export const userAuthSlice = createSlice({
       state.user = null;
     },
     updateUser: (state, action) => {
-      // console.log(state.workout);
-      // console.log(action.payload);
-      // state.workout = state.workout.filter(
-      //   (workout) => workout._id !== action.payload._id
-      // );
       state.user = action.payload;
     },
   },

@@ -12,7 +12,6 @@ const CookieStore = {
   setItem: async (key, val, callback) => {
     key = key.replace(":", "_");
     const value = JSON.parse(val);
-    console.log(value);
     const authVal = value.user;
     delete value.auth;
     localStorage.setItem(key, JSON.stringify(value));
@@ -23,8 +22,6 @@ const CookieStore = {
     return Promise.resolve(null);
   },
   getItem: async (key, callback) => {
-    console.log(key);
-    console.log(callback);
     key = key.replace(":", "_");
     const dataItem = localStorage.getItem(key);
     let item = {};
@@ -37,8 +34,6 @@ const CookieStore = {
     return Promise.resolve(JSON.stringify(item));
   },
   removeItem: async (key, callback) => {
-    // console.log(key);
-    // console.log(callback);
     removeCookie(key);
     localStorage.removeItem(key);
     if (callback) {

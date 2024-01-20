@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Outlet, useNavigate, useLocation, Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 import { useSignup } from "../hooks/useSignup";
-import { handleRedirect } from "../utils/helperAuthentication";
-import { userAuthSlice, selectUserAuth } from "../app/features/AuthContext";
+import { selectUserAuth } from "../app/features/AuthContext";
 
 function Signup() {
   const navigate = useNavigate();

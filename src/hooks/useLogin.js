@@ -23,14 +23,12 @@ export const useLogin = () => {
     const json = await response.json();
 
     if (!response.ok) {
-      console.log("this ran");
       setIsLoading(false);
       setError(json.error);
     }
 
     if (response.ok) {
       // save to localStorage
-      console.log("the ok ran");
       localStorage.setItem("user", JSON.stringify(json));
       dispatch(login(json));
       setIsLoading(false);

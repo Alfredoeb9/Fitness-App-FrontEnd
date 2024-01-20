@@ -34,10 +34,6 @@ const WorkoutForm = () => {
       return;
     }
 
-    console.log(activity);
-    console.log(duration);
-    console.log(currentWeight);
-
     const workout = {
       title,
       load,
@@ -47,8 +43,6 @@ const WorkoutForm = () => {
       duration,
       currentWeight,
     };
-
-    console.log(workout);
 
     const response = await fetch(
       `https://a1fitness-app-frontend.herokuapp.com/api/workouts`,
@@ -79,7 +73,6 @@ const WorkoutForm = () => {
       setDuration("");
       setCurrentWeight("");
       setEmptyFields([]);
-      console.log("new workout added ", json);
 
       dispatch(createWorkout(json));
     }
@@ -460,9 +453,6 @@ const WorkoutForm = () => {
             value={currentWeight}
           />
         </div>
-        {/* ) : (
-          ""
-        )} */}
       </div>
 
       <button>Add Workout</button>

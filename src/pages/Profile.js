@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Outlet, useNavigate, useLocation, Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
-import { useSignup } from "../hooks/useSignup";
 import { useUpdateProfile } from "../hooks/useProfileUpdate";
 import { useLogout } from "../hooks/useLogout";
-import { handleRedirect } from "../utils/helperAuthentication";
 import { selectUserAuth } from "../app/features/AuthContext";
 
 function Profile() {

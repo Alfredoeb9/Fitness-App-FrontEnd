@@ -1,16 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Outlet, Navigate, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { deleteWorkout, updateWorkout } from "../app/features/workoutSlice";
 import { selectUserAuth } from "../app/features/AuthContext";
-import formatDistanceToNow from "date-fns/formatDistanceToNow";
-import { compareAsc, format } from "date-fns";
+import { format } from "date-fns";
 import "./WorkoutDetails.css";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 import EditIcon from "@mui/icons-material/Edit";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
 import Switch from "@mui/material/Switch";
 import { capitalizeFirstLetter } from "../utils/capFirstLetter";
 import { calculateCaloriesBurned } from "../utils/calculateCaloriesBurned";
@@ -108,8 +106,6 @@ export default WorkoutDetails;
 
 function ModalTest({ workout2, user, setModal }) {
   const dispatch = useDispatch();
-  const location = useLocation();
-  // const user = useSelector(selectUserAuth);
   const [title2, setTitle2] = useState("");
   const [load2, setLoad2] = useState("");
   const [reps2, setReps2] = useState("");
@@ -561,9 +557,6 @@ function ModalTest({ workout2, user, setModal }) {
               value={currentWeight2}
             />
           </div>
-          {/* ) : (
-          ""
-        )} */}
         </div>
 
         <button>Save Workout</button>
