@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { Outlet, useNavigate, useLocation, Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useLogin } from "../hooks/useLogin";
-import { userAuthSlice, selectUserAuth } from "../app/features/AuthContext";
-import { handleRedirect } from "../utils/helperAuthentication";
+import { selectUserAuth } from "../app/features/AuthContext";
 
 function Login() {
   const navigate = useNavigate();

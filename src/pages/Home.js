@@ -24,7 +24,7 @@ const Home = () => {
   useEffect(() => {
     const fetchAllWorkouts = async () => {
       const response = await axios.get(
-        `https://a1fitness-app-frontend.herokuapp.com/api/workouts`,
+        `${process.env.REACT_API_URL}/api/workouts`,
         {
           headers: {
             Authorization: `Bearer ${user.token}`,

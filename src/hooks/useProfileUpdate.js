@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { login, updateUser } from "../app/features/AuthContext";
+import { updateUser } from "../app/features/AuthContext";
 
 export const useUpdateProfile = () => {
   const dispatch = useDispatch();
@@ -12,7 +12,7 @@ export const useUpdateProfile = () => {
     setError(null);
 
     const response = await fetch(
-      `https://a1fitness-app-frontend.herokuapp.com/api/user/updateuser`,
+      `${process.env.REACT_API_URL}/api/user/updateuser`,
       {
         method: "PUT",
         headers: {

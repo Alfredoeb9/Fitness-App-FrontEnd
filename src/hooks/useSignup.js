@@ -12,7 +12,7 @@ export const useSignup = () => {
     setError(null);
 
     const response = await fetch(
-      `https://a1fitness-app-frontend.herokuapp.com/api/user/signup`,
+      `${process.env.REACT_API_URL}/api/user/signup`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

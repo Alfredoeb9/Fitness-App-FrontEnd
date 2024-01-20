@@ -26,9 +26,6 @@ export const workoutSlice = createSlice({
     },
 
     updateWorkout: (state, action) => {
-      toast("MY SUCCESS");
-      console.log(state.workout);
-      console.log(action.payload);
       state.workout = state.workout.filter(
         (workout) => workout._id !== action.payload._id
       );

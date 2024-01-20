@@ -23,7 +23,7 @@ const WorkoutDetails = ({ workout }) => {
       return;
     }
     const response = await fetch(
-      `https://a1fitness-app-frontend.herokuapp.com/api/workouts/${workout._id}`,
+      `${process.env.REACT_API_URL}/api/workouts/${workout._id}`,
       {
         method: "DELETE",
         headers: {
@@ -37,7 +37,6 @@ const WorkoutDetails = ({ workout }) => {
     const data = await response.json();
 
     if (response.ok) {
-      console.log(`Deleting workout: ${data}`);
       dispatch(deleteWorkout(data));
     }
   };
@@ -140,7 +139,7 @@ function ModalTest({ workout2, user, setModal }) {
     };
 
     const response = await fetch(
-      `https://a1fitness-app-frontend.herokuapp.com/api/workouts/${workout2._id}`,
+      `${process.env.REACT_API_URL}/api/workouts/${workout2._id}`,
       {
         method: "PUT",
         body: JSON.stringify(workout),

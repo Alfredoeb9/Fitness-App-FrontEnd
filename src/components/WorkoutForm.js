@@ -45,7 +45,7 @@ const WorkoutForm = () => {
     };
 
     const response = await fetch(
-      `https://a1fitness-app-frontend.herokuapp.com/api/workouts`,
+      `${process.env.REACT_API_URL}/api/workouts`,
       {
         method: "POST",
         body: JSON.stringify(workout),
