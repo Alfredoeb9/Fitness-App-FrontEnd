@@ -23,3 +23,4 @@ These are a list of features I want to integrate.
     [x] - Make mobile more appealing (current)
     [x] - Have a unique landing page
     [x] - Fix the profile page to edit users.
+    []  - (Bug)Fix Toastify when user deletes workout and or creates new workout
