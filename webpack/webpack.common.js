@@ -10,7 +10,7 @@ module.exports = {
     'core-js/modules/es.array.iterator',
     'core-js/stable/symbol',
     'core-js/stable/object',
-    './src/index.tsx',
+    './src/index.jsx',
   ],
   output: {
     publicPath: 'auto',
@@ -18,13 +18,13 @@ module.exports = {
   },
   target: ['browserslist'],
   resolve: {
-    extensions: ['.ts', '.tsx', '.js'],
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
     modules: ['src', 'node_modules'],
   },
   module: {
     rules: [
       {
-        test: /\.(ts|tsx)?$/,
+        test: /\.(ts|tsx|js|jsx)?$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
       },

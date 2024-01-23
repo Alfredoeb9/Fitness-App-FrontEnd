@@ -1,5 +1,6 @@
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { combineReducers, configureStore, Tuple } from "@reduxjs/toolkit";
 import { persistReducer, persistStore } from "redux-persist";
+import { thunk } from "redux-thunk";
 import workoutReducer from "./features/workoutSlice";
 import userAuthReducer from "./features/AuthContext";
 import {
@@ -59,4 +60,5 @@ const persistedReducer = persistReducer(persistAuthConfig, authXReducer);
 export const store = configureStore({
   reducer: persistedReducer,
   devTools: true,
+  middleware: () => new Tuple(thunk),
 });

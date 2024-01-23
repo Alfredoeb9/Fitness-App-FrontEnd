@@ -13,21 +13,20 @@
     "@testing-library/react": "14.1.2",
     "@testing-library/user-event": "14.5.2",
     "axios": "1.6.5",
+    "core-js": "3.35.0",
     "date-fns": "3.3.0",
     "jsonwebtoken": "9.0.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-redux": "9.1.0",
     "react-router-dom": "6.21.3",
-    "react-scripts": "5.0.1",
     "react-toastify": "10.0.3",
     "redux-persist": "6.0.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "webpack-cli serve --config webpack/webpack.dev.js",
+    "build": "webpack --config webpack/webpack.prod.js",
+    "test": "react-scripts test"
   },
   "devDependencies": {
     "@babel/core": "7.23.7",

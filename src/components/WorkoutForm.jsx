@@ -1,5 +1,4 @@
-/* eslint-disable no-unused-vars */
-import { useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Switch from "@mui/material/Switch";
 import { createWorkout } from "../app/features/workoutSlice";
