@@ -23,7 +23,13 @@ function PrivateRoutes() {
   return user ? (
     <Outlet />
   ) : isMobile ? (
-    navigate("/welcome", { replace: true })
+    <Navigate
+      to="/welcome"
+      state={{
+        from: location,
+      }}
+      replace={true}
+    />
   ) : (
     // navigate("/welcome", { replace: true })
     <Navigate

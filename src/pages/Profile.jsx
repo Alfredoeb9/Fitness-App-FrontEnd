@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import { useUpdateProfile } from "../hooks/useProfileUpdate";
 import { useLogout } from "../hooks/useLogout";
 import { selectUserAuth } from "../app/features/AuthContext";
@@ -17,6 +20,8 @@ function Profile() {
 
   const { logout2 } = useLogout();
 
+  const notify = () => toast.success("Profil information changed");
+
   useEffect(() => {
     if (user == null) {
       navigate("/login", { replace: true });
@@ -25,6 +30,7 @@ function Profile() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    notify();
     await updateProfile(
       firstName || user.firstName,
       lastName || user.lastName,
@@ -41,13 +47,13 @@ function Profile() {
     <form className="signup" onSubmit={handleSubmit}>
       <h3>Change Profile:</h3>
 
-      <label>Email:</label>
+      {/* <label>Email:</label>
       <input
         type="email"
         onChange={(e) => setEmail(e.target.value)}
         value={email || ""}
         placeholder={user.email}
-      />
+      /> */}
       <label>First Name:</label>
       <input
         type="name"
@@ -76,6 +82,11 @@ function Profile() {
       </div>
 
       {error && <div className="error">{error}</div>}
+
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+      />
     </form>
   );
 }
