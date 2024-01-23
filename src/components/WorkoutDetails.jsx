@@ -18,6 +18,8 @@ const WorkoutDetails = ({ workout }) => {
   const dispatch = useDispatch();
   const user = useSelector(selectUserAuth);
 
+  const notify = () => toast.success("Workout Deleted");
+
   const handleClick = async () => {
     if (!user) {
       return;
@@ -37,6 +39,7 @@ const WorkoutDetails = ({ workout }) => {
     const data = await response.json();
 
     if (response.ok) {
+      notify();
       dispatch(deleteWorkout(data));
     }
   };
@@ -97,6 +100,8 @@ const WorkoutDetails = ({ workout }) => {
       ) : (
         ""
       )}
+
+      <ToastContainer />
     </div>
   );
 };
@@ -561,7 +566,7 @@ function ModalTest({ workout2, user, setModal }) {
         <button>Save Workout</button>
 
         {error2 && <div className="error">{error2}</div>}
-        <ToastContainer />
+        
       </form>
     </div>
   );

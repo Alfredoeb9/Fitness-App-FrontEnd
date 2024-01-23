@@ -20,7 +20,7 @@ function Profile() {
 
   const { logout2 } = useLogout();
 
-  const notify = () => toast.success("Profil information changed");
+  const notify = () => toast.success("Profile information changed");
 
   useEffect(() => {
     if (user == null) {

@@ -25,6 +25,8 @@ const WorkoutForm = () => {
 
   const label = { inputProps: { "aria-label": "Track Calories Burned" } };
 
+  const notify = () => toast.success("New Workout Deleted");
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -72,7 +74,7 @@ const WorkoutForm = () => {
       setDuration("");
       setCurrentWeight("");
       setEmptyFields([]);
-
+      notify();
       dispatch(createWorkout(json));
     }
   };
