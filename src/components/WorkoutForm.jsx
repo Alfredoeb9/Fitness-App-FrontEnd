@@ -26,7 +26,7 @@ const WorkoutForm = () => {
 
   const label = { inputProps: { "aria-label": "Track Calories Burned" } };
 
-  const notify = () => toast.success("New Workout Deleted");
+  const notify = () => toast.success("New Workout Created");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -460,6 +460,11 @@ const WorkoutForm = () => {
       <button>Add Workout</button>
 
       {error && <div className="error">{error}</div>}
+
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+      />
     </form>
   );
 };
