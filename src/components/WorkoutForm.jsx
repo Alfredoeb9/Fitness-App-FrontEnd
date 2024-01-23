@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
 import { useDispatch, useSelector } from "react-redux";
 import Switch from "@mui/material/Switch";
 import { createWorkout } from "../app/features/workoutSlice";
