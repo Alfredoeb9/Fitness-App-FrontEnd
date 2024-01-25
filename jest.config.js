@@ -1,8 +1,8 @@
 module.exports = {
-    setupFiles: ["whatwg-fetch"],
-    preset: 'ts-jest',
+    
+    // preset: 'ts-jest',
     transform: {
-      '^.+\\.(ts|tsx)?$': 'ts-jest',
+      // '^.+\\.(ts|tsx)?$': 'ts-jest',
       '^.+\\.(js|jsx)$': 'babel-jest',
     },
     moduleNameMapper: {
@@ -10,5 +10,6 @@ module.exports = {
           '<rootDir>/src/__mock__/fileMock.js',
         '\\.(css|less)$': '<rootDir>/test/__mock__/styleMock.js',
     },
-    "testEnvironment": "jsdom"
+    "testEnvironment": "<rootDir>/test/test-config/env-setup.js",
+    "setupFilesAfterEnv": ["<rootDir>/test/test-config/dom-setup.js"]
 };
