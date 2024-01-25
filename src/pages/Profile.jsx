@@ -24,8 +24,8 @@ function Profile() {
 
   useEffect(() => {
     if (user == null) {
-      redirect("/login")
-      // navigate("/login", { replace: true });
+      // redirect("/login")
+      navigate("/login", { replace: true });
     }
   }, [redirect, user]);
 

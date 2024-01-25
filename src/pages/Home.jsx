@@ -33,7 +33,7 @@ const Home = () => {
         }
       )
 
-      if (response) throw new Error("Something went wrong with retrieving your workouts! Please refresh")
+      if (!response) throw new Error("Something went wrong with retrieving your workouts! Please refresh")
 
       const data = await response.data;
 
