@@ -31,6 +31,7 @@ function Login() {
       <label>Email:</label>
       <input
         type="email"
+        aria-label="email"
         onChange={(e) => setEmail(e.target.value)}
         value={email}
       />
@@ -38,6 +39,7 @@ function Login() {
       <label>Password:</label>
       <input
         type="password"
+        aria-label="password"
         onChange={(e) => setPassword(e.target.value)}
         value={password}
       />
