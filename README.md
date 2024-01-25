@@ -25,4 +25,6 @@ These are a list of features I want to integrate.
     [x] - Fix the profile page to edit users.
     []  - (Bug)Fix Toastify when user deletes workout and or creates new workout
     [x]  - Implement webpack for serve and build process
-    []  - Convert to project to typescript
+    []  - Convert project to typescript
+    [x] - Implement unit testing
+    [50%] - Replace useEffect fetch calls with react query
