@@ -73,5 +73,5 @@ module.exports = {
       template: './public/index.html',
       // favicon: './src/assets/fav/draccon.ico'
     }),
-  ],
+  ].concat(devMode ? [] : [new MiniCssExtractPlugin()]),
 }
