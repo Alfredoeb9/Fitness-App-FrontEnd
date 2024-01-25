@@ -1,5 +1,5 @@
 module.exports = {
-  // preset: 'ts-jest',
+  preset: 'ts-jest',
   transform: {
     // '^.+\\.(ts|tsx)?$': 'ts-jest',
     '^.+\\.(js|jsx)$': 'babel-jest',
@@ -10,5 +10,9 @@ module.exports = {
       '\\.(css|less)$': '<rootDir>/test/__mock__/styleMock.js',
   },
   "testEnvironment": "<rootDir>/test/test-config/env-setup.js",
-  "setupFilesAfterEnv": ["<rootDir>/test/test-config/dom-setup.js"]
+  "setupFilesAfterEnv": [
+    "<rootDir>/test/test-config/dom-setup.js",
+    "<rootDir>/test/hooks/beforeAll.js",
+    "<rootDir>/test/hooks/afterEach.js"
+  ]
 };
