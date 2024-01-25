@@ -1,9 +1,11 @@
 const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { ModuleFederationPlugin } = require('webpack').container
 const deps = require('../package.json').dependencies
 const pkgname = require('../package.json').name
+const devMode = process.env.NODE_ENV !== "production";
 
 module.exports = {
   entry: [
@@ -30,7 +32,7 @@ module.exports = {
       },
       {
         test: /\.(css)$/i,
-        use: ['style-loader', 'css-loader', 'postcss-loader'],
+        use: [ devMode ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
       },
       {
         test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
