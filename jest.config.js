@@ -1,4 +1,5 @@
 module.exports = {
+    setupFiles: ["whatwg-fetch"],
     preset: 'ts-jest',
     transform: {
       '^.+\\.(ts|tsx)?$': 'ts-jest',

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { redirect, useNavigate } from "react-router-dom";
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -24,9 +24,10 @@ function Profile() {
 
   useEffect(() => {
     if (user == null) {
-      navigate("/login", { replace: true });
+      redirect("/login")
+      // navigate("/login", { replace: true });
     }
-  }, [navigate, user]);
+  }, [redirect, user]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

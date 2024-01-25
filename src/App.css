@@ -4,3 +4,8 @@
 html {
   width: 100%;
 }
+
+.error {
+  color: red;
+  font-size: large;
+}
