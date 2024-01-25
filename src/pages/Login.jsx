@@ -44,7 +44,7 @@ function Login() {
         value={password}
       />
 
-      <button onClick={handleSubmit} disabled={isLoading}>
+      <button type="button" role="button" aria-label="log in" onClick={handleSubmit} disabled={isLoading}>
         Log in
       </button>
       {error && <div className="error">{error}</div>}
