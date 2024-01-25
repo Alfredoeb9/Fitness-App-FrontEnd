@@ -2,13 +2,13 @@ module.exports = (/** @type {{ cache: (arg0: boolean) => void; }} */ api) => {
     api.cache(false)
     const presets = [
       ['@babel/preset-typescript'],
-      ['@babel/preset-react'],
+      ['@babel/preset-react', {runtime: 'automatic'}],
       [
         '@babel/preset-env',
         {
           corejs: { version: 3 },
           useBuiltIns: 'usage',
-          modules: false,
+          // modules: false,
           targets: {
             edge: '17',
             firefox: '60',
