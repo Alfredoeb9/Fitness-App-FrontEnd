@@ -43,17 +43,19 @@ const Navbar = () => {
                   labelId="profile-dropDown"
                   // id="demo-simple-select"
                   // value={age}
+                  defaultValue={''}
                   label="profile-dropDown"
+                  data-testid="testing"
                   // onChange={handleChange}
                 >
-                  <MenuItem>
+                  <MenuItem value='profile-page'>
                     <Link to="/profile">
                       <Avatar sx={{ bgcolor: deepOrange[500] }}></Avatar>
                       <span className="">{user && user.email}</span>
                     </Link>
                   </MenuItem>
-                  <MenuItem></MenuItem>
-                  <MenuItem>
+                  {/* <MenuItem></MenuItem> */}
+                  <MenuItem value='log-out'>
                     <span onClick={handleClick}>Log out</span>
                   </MenuItem>
                 </Select>

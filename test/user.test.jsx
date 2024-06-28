@@ -9,7 +9,17 @@ import {
   } from 'react-query'
 import App from '../src/App';
 
-it('if no user is signed in then redirect to login page', async () => {
+beforeEach(() => {
+    let json = {
+        "email": "test@gmail",
+        "firstName": "test",
+        "lastName": "tester"
+    }
+    localStorage.setItem("user", JSON.stringify(json))
+    // dispatch(login(json));
+});
+
+it('if user is signed in then redirect workout page', async () => {
     // Create a client
     const queryClient = new QueryClient()
 
@@ -28,10 +38,16 @@ it('if no user is signed in then redirect to login page', async () => {
     // get user from localstorage
     const user = JSON.parse(localStorage.getItem("user"));
 
-    expect(user).toBeNull();
 
-    // check if we are in the login screen
-    const emailInput = screen.getByLabelText(new RegExp('email'), 'i')
+    expect(user).toStrictEqual({
+        "email": "test@gmail",
+        "firstName": "test",
+        "lastName": "tester"
+    });
 
-    expect(emailInput.value).toBe('');
+    const workoutScreen = screen.getByText(new RegExp('Put Some new Workouts'), 'i').outerHTML
+
+    const expectedButton = '<p> Put Some new Workouts</p>';
+
+    expect(workoutScreen).toEqual(expectedButton)
 })
