@@ -5,12 +5,10 @@ import {
   createRoutesFromElements,
   RouterProvider,
 } from "react-router-dom";
-import { useDispatch } from "react-redux";
 import { login } from "./app/features/AuthContext";
 import RootLayout from "./layouts/RootLayout";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
-import Navbar from "./components/Navbar";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
@@ -18,6 +16,7 @@ import NotFound from "./pages/NotFound";
 import "./App.css";
 import PrivateRoutes from "./components/PrivateRoutes";
 import Welcome from "./pages/Welcome";
+import { useAppDispatch } from "app/hooks";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -35,7 +34,7 @@ const router = createBrowserRouter(
 );
 
 function App() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));

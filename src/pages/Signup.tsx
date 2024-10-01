@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import { useSignup } from "../hooks/useSignup";
 import { selectUserAuth } from "../app/features/AuthContext";
+import { useAppSelector } from "app/hooks";
 
 function Signup() {
   const navigate = useNavigate();
@@ -12,7 +12,7 @@ function Signup() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const { signup, error, isLoading } = useSignup();
-  const user = useSelector(selectUserAuth);
+  const user = useAppSelector(selectUserAuth);
 
   useEffect(() => {
     if (user !== null) {

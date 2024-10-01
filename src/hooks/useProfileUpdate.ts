@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
 import { updateUser } from "../app/features/AuthContext";
+import { useAppDispatch } from "app/hooks";
 
 type UpdateProfileTypes = {
   firstName: string;
@@ -12,7 +12,7 @@ type UpdateProfileTypes = {
 };
 
 export const useUpdateProfile = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
 

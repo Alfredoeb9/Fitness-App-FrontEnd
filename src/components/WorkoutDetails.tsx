@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { useQueryClient } from "react-query";
 import { deleteWorkout, updateWorkout } from "../app/features/workoutSlice";
@@ -11,15 +10,14 @@ import EditIcon from "@mui/icons-material/Edit";
 import Switch from "@mui/material/Switch";
 import { capitalizeFirstLetter } from "../utils/capFirstLetter";
 import { calculateCaloriesBurned } from "../utils/calculateCaloriesBurned";
+import { useAppDispatch, useAppSelector } from "app/hooks";
 
 const WorkoutDetails = ({ workout }: any) => {
   const [modal, setModal] = useState(false);
-  const dispatch = useDispatch();
-  const user = useSelector(selectUserAuth);
+  const dispatch = useAppDispatch();
+  const user = useAppSelector(selectUserAuth);
   // Get QueryClient from the context
   const queryClient = useQueryClient();
-
-  const notify = () => toast.success("Workout Deleted");
 
   const handleClick = async () => {
     if (!user) {
@@ -116,7 +114,7 @@ const WorkoutDetails = ({ workout }: any) => {
 export default WorkoutDetails;
 
 function ModalTest({ workout2, user, setModal }: any) {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const [title2, setTitle2] = useState("");
   const [load2, setLoad2] = useState("");
   const [reps2, setReps2] = useState("");

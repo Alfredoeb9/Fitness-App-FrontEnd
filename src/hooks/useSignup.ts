@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
 import { login } from "../app/features/AuthContext";
+import { useAppDispatch } from "app/hooks";
 
 type SignUpTypes = {
   firstName: string;
@@ -10,7 +10,7 @@ type SignUpTypes = {
 };
 
 export const useSignup = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
 

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 import { redirect, useNavigate } from "react-router-dom";
 
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 import { useUpdateProfile } from "../hooks/useProfileUpdate";
 import { useLogout } from "../hooks/useLogout";
 import { selectUserAuth } from "../app/features/AuthContext";
+import { useAppSelector } from "app/hooks";
 
 function Profile() {
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ function Profile() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const { updateProfile, error, isLoading } = useUpdateProfile();
-  const user = useSelector(selectUserAuth);
+  const user = useAppSelector(selectUserAuth);
 
   const { logout2 } = useLogout();
 

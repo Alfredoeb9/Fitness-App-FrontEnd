@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
-import { useDispatch, useSelector } from "react-redux";
 import { useQueryClient } from "react-query";
 import Switch from "@mui/material/Switch";
 import { createWorkout } from "../app/features/workoutSlice";
 import { selectUserAuth } from "../app/features/AuthContext";
 import "./WorkoutForm.css";
 import "react-toastify/dist/ReactToastify.css";
+import { useAppDispatch, useAppSelector } from "app/hooks";
 
 const WorkoutForm = () => {
-  const dispatch = useDispatch();
-  const user = useSelector(selectUserAuth);
+  const dispatch = useAppDispatch();
+  const user = useAppSelector(selectUserAuth);
   const [title, setTitle] = useState("");
   const [load, setLoad] = useState("");
   const [reps, setReps] = useState("");
@@ -30,8 +30,6 @@ const WorkoutForm = () => {
   };
 
   const label = { inputProps: { "aria-label": "Track Calories Burned" } };
-
-  const notify = () => toast.success("New Workout Created");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
 import { redirect } from "react-router-dom";
 import { useLogin } from "../hooks/useLogin";
 import { selectUserAuth } from "../app/features/AuthContext";
+import { useAppSelector } from "app/hooks";
 
 function Login() {
   const navigate = useNavigate();
-  const user = useSelector(selectUserAuth);
+  const user = useAppSelector(selectUserAuth);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { login2, error, isLoading } = useLogin();

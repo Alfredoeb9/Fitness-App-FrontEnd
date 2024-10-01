@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { toast } from "react-toastify";
+import { RootState } from "app/store";
 
 type WorkoutState = {
   workout: any;
@@ -48,7 +48,9 @@ export const { getWorkout, createWorkout, deleteWorkout, updateWorkout } =
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
 // in the slice file. For example: `useSelector((state: RootState) => state.counter.value)`
-export const selectWorkout = (state: { workout: { workout: any } }) =>
-  state.workout.workout;
+export const selectWorkout = (state: RootState) => state.workout.workout;
+
+// export const selectWorkout = (state: { workout: { workout: any } }) =>
+//   state.workout.workout;
 
 export default workoutSlice.reducer;

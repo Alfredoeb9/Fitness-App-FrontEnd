@@ -1,26 +1,21 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import React from "react";
+import { useDispatch } from "react-redux";
+import { useLocation } from "react-router-dom";
 import { useQuery } from "react-query";
-import { ToastContainer, toast } from "react-toastify";
-
-import {
-  getWorkout,
-  selectWorkout,
-  updateWorkout,
-} from "../app/features/workoutSlice";
+import { getWorkout, selectWorkout } from "../app/features/workoutSlice";
 import { selectUserAuth } from "../app/features/AuthContext";
 import axios from "axios";
 import "./Home.css";
 import WorkoutDetails from "../components/WorkoutDetails";
 import WorkoutForm from "../components/WorkoutForm";
+import { useAppDispatch, useAppSelector } from "app/hooks";
 
 const Home = () => {
   // const [workouts, setWorkouts] = useState(null);
   const location = useLocation();
-  const workouts = useSelector(selectWorkout);
-  const user = useSelector(selectUserAuth);
-  const dispatch = useDispatch();
+  const workouts = useAppSelector(selectWorkout);
+  const user = useAppSelector(selectUserAuth);
+  const dispatch = useAppDispatch();
   const { isLoading, data, error } = useQuery(["workouts"], {
     queryFn: async () => {
       let response = await axios.get(
