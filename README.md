@@ -6,15 +6,19 @@ The following technologies have been used to develop Musical Mousse:
 
     1. React: A popular JavaScript library for building user interfaces.
 
-    2. Redux: A state management library for React that allows for a centralized store of data in a React application.
+    2. TypeScript: A strongly typed programming language that builds on JavaScript.
 
-    3. Node.js: A JavaScript runtime environment used for building server-side applications.
+    3. Redux: A state management library for React that allows for a centralized store of data in a React application.
 
-    4. Express: A fast, unopinionated, minimalist web framework for Node.js.
+    4. Node.js: A JavaScript runtime environment used for building server-side applications.
 
-    5. MongoDB: A NoSQL database used for storing data for the application.
+    5. Express: A fast, unopinionated, minimalist web framework for Node.js.
 
-    6. Vercel: A platform for deploying and hosting web applications.
+    6. MongoDB: A NoSQL database used for storing data for the application.
+
+    7. Vercel: A platform for deploying and hosting web applications.
+
+    8. Github Actions: CI/CD process to ensure proper build, and unit testing
 
 ### TODO
 
