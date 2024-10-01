@@ -90,7 +90,7 @@ const Home = () => {
     <div className="home">
       <div className="workouts">
         {data ? (
-          data?.map((workout) => {
+          data?.map((workout: any) => {
             return <WorkoutDetails key={workout._id} workout={workout} />;
           })
         ) : (
@@ -104,12 +104,6 @@ const Home = () => {
         )}
       </div>
       <WorkoutForm />
-
-      {/* <ToastContainer
-        position="bottom-right"
-        autoClose={5000}
-        containerId="workout"
-      /> */}
     </div>
   );
 };

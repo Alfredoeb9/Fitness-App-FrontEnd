@@ -9,8 +9,12 @@ import {
   removeCookie,
 } from "../utils/helperAuthentication";
 
+type ItemTypes = {
+  auth?: any;
+};
+
 const CookieStore = {
-  setItem: async (key, val, callback) => {
+  setItem: async (key: string, val: string, callback: (arg0: null) => void) => {
     key = key.replace(":", "_");
     const value = JSON.parse(val);
     const authVal = value.user;
@@ -22,10 +26,13 @@ const CookieStore = {
     }
     return Promise.resolve(null);
   },
-  getItem: async (key, callback) => {
+  getItem: async (
+    key: string,
+    callback: (arg0: null, arg1: string) => void
+  ) => {
     key = key.replace(":", "_");
     const dataItem = localStorage.getItem(key);
-    let item = {};
+    let item: ItemTypes = {};
     if (dataItem) item = JSON.parse(dataItem);
     const authItem = JSON.parse(getCookie(key));
     if (authItem) item.auth = authItem;
@@ -34,7 +41,7 @@ const CookieStore = {
     }
     return Promise.resolve(JSON.stringify(item));
   },
-  removeItem: async (key, callback) => {
+  removeItem: async (key: string, callback: (arg0: null) => void) => {
     removeCookie(key);
     localStorage.removeItem(key);
     if (callback) {
@@ -62,3 +69,8 @@ export const store = configureStore({
   devTools: true,
   middleware: () => new Tuple(thunk),
 });
+
+// Infer the `RootState` and `AppDispatch` types from the store itself
+export type RootState = ReturnType<typeof store.getState>;
+// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
+export type AppDispatch = typeof store.dispatch;

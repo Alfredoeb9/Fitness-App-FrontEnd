@@ -28,7 +28,7 @@ function Profile() {
     }
   }, [redirect, user]);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     toast("Profile information changed", {
       position: "bottom-right",
@@ -38,12 +38,15 @@ function Profile() {
       type: "success",
       toastId: 5,
     });
-    await updateProfile(
-      firstName || user.firstName,
-      lastName || user.lastName,
-      email || user.email,
-      user
-    );
+
+    const data = {
+      firstName: firstName || user?.firstName,
+      lastName: lastName || user?.lastName,
+      email: email || user?.email,
+      user,
+    };
+
+    await updateProfile(data);
   };
 
   const handleLogOut = () => {

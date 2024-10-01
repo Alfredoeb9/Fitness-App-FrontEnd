@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { redirect  } from "react-router-dom";
+import { redirect } from "react-router-dom";
 import { useLogin } from "../hooks/useLogin";
 import { selectUserAuth } from "../app/features/AuthContext";
 
@@ -14,11 +14,11 @@ function Login() {
 
   useEffect(() => {
     if (user !== null) {
-      navigate("/", { replace: true })
+      navigate("/", { replace: true });
     }
   }, [redirect, user]);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     await login2(email, password);
@@ -44,7 +44,13 @@ function Login() {
         value={password}
       />
 
-      <button type="button" role="button" aria-label="log in" onClick={handleSubmit} disabled={isLoading}>
+      <button
+        type="button"
+        role="button"
+        aria-label="log in"
+        onClick={handleSubmit}
+        disabled={isLoading}
+      >
         Log in
       </button>
       {error && <div className="error">{error}</div>}
