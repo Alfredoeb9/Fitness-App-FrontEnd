@@ -10,7 +10,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import Switch from "@mui/material/Switch";
 import { capitalizeFirstLetter } from "../utils/capFirstLetter";
 import { calculateCaloriesBurned } from "../utils/calculateCaloriesBurned";
-import { useAppDispatch, useAppSelector } from "app/hooks";
+import { useAppDispatch, useAppSelector } from "../app/hooks";
 
 const WorkoutDetails = ({ workout }: any) => {
   const [modal, setModal] = useState(false);

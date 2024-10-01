@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import { useUpdateProfile } from "../hooks/useProfileUpdate";
 import { useLogout } from "../hooks/useLogout";
 import { selectUserAuth } from "../app/features/AuthContext";
-import { useAppSelector } from "app/hooks";
+import { useAppSelector } from "../app/hooks";
 
 function Profile() {
   const navigate = useNavigate();

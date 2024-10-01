@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import { useSignup } from "../hooks/useSignup";
 import { selectUserAuth } from "../app/features/AuthContext";
-import { useAppSelector } from "app/hooks";
+import { useAppSelector } from "../app/hooks";
 
 function Signup() {
   const navigate = useNavigate();

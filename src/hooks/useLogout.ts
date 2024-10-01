@@ -1,6 +1,6 @@
 import { logout } from "../app/features/AuthContext";
 import { getWorkout } from "../app/features/workoutSlice";
-import { useAppDispatch } from "app/hooks";
+import { useAppDispatch } from "../app/hooks";
 
 export const useLogout = () => {
   const dispatch = useAppDispatch();

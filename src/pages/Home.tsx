@@ -8,7 +8,7 @@ import axios from "axios";
 import "./Home.css";
 import WorkoutDetails from "../components/WorkoutDetails";
 import WorkoutForm from "../components/WorkoutForm";
-import { useAppDispatch, useAppSelector } from "app/hooks";
+import { useAppDispatch, useAppSelector } from "../app/hooks";
 
 const Home = () => {
   // const [workouts, setWorkouts] = useState(null);

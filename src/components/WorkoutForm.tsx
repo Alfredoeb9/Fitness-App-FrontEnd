@@ -6,7 +6,7 @@ import { createWorkout } from "../app/features/workoutSlice";
 import { selectUserAuth } from "../app/features/AuthContext";
 import "./WorkoutForm.css";
 import "react-toastify/dist/ReactToastify.css";
-import { useAppDispatch, useAppSelector } from "app/hooks";
+import { useAppDispatch, useAppSelector } from "../app/hooks";
 
 const WorkoutForm = () => {
   const dispatch = useAppDispatch();

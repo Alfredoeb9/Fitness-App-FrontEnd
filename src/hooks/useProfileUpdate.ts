@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { updateUser } from "../app/features/AuthContext";
-import { useAppDispatch } from "app/hooks";
+import { useAppDispatch } from "../app/hooks";
 
 type UpdateProfileTypes = {
   firstName: string;

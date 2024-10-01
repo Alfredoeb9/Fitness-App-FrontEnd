@@ -7,7 +7,7 @@ import { deepOrange } from "@mui/material/colors";
 import Select from "@mui/material/Select";
 import { useLogout } from "../hooks/useLogout";
 import { selectUserAuth } from "../app/features/AuthContext";
-import { useAppSelector } from "app/hooks";
+import { useAppSelector } from "../app/hooks";
 
 const Navbar = () => {
   const user = useAppSelector(selectUserAuth);

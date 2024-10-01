@@ -16,7 +16,7 @@ import NotFound from "./pages/NotFound";
 import "./App.css";
 import PrivateRoutes from "./components/PrivateRoutes";
 import Welcome from "./pages/Welcome";
-import { useAppDispatch } from "app/hooks";
+import { useAppDispatch } from "./app/hooks";
 
 const router = createBrowserRouter(
   createRoutesFromElements(

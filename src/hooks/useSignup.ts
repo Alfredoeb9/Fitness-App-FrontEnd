@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { login } from "../app/features/AuthContext";
-import { useAppDispatch } from "app/hooks";
+import { useAppDispatch } from "../app/hooks";
 
 type SignUpTypes = {
   firstName: string;
