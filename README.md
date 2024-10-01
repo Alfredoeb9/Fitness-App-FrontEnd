@@ -23,8 +23,8 @@ These are a list of features I want to integrate.
     [x] - Make mobile more appealing (current)
     [x] - Have a unique landing page
     [x] - Fix the profile page to edit users.
-    []  - (Bug)Fix Toastify when user deletes workout and or creates new workout
+    [x]  - (Bug)Fix Toastify when user deletes workout and or creates new workout
     [x]  - Implement webpack for serve and build process
-    []  - Convert project to typescript
+    [x]  - Convert project to typescript
     [x] - Implement unit testing
     [50%] - Replace useEffect fetch calls with react query
