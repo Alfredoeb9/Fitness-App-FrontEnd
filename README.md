@@ -1,5 +1,7 @@
 A1 Fitness is a web application that allows users to track their workouts. The application is built with a focus on delivering an intuitive and enjoyable experience for users.
 
+![A1 Fitness Logger](image.png)
+
 ## Technologies Used
 
 The following technologies have been used to develop Musical Mousse:
