@@ -16,7 +16,11 @@ export const workoutSlice = createSlice({
     },
 
     createWorkout: (state, action) => {
-      state.workout = [action.payload, ...state.workout];
+      if (state.workout === null) {
+        state.workout = [action.payload];
+      } else {
+        state.workout = [action.payload, ...state?.workout];
+      }
     },
 
     deleteWorkout: (state, action) => {

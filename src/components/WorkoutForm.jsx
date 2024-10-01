@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast, ToastContainer } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
+import { useQueryClient } from "react-query";
 import Switch from "@mui/material/Switch";
 import { createWorkout } from "../app/features/workoutSlice";
 import { selectUserAuth } from "../app/features/AuthContext";
 import "./WorkoutForm.css";
+import "react-toastify/dist/ReactToastify.css";
 
 const WorkoutForm = () => {
   const dispatch = useDispatch();
@@ -19,6 +21,9 @@ const WorkoutForm = () => {
   const [duration, setDuration] = useState("");
   const [currentWeight, setCurrentWeight] = useState("");
   const [checked, setChecked] = useState(false);
+
+  // Get QueryClient from the context
+  const queryClient = useQueryClient();
 
   const handleCheckedChange = (event) => {
     setChecked(event.target.checked);
@@ -75,9 +80,19 @@ const WorkoutForm = () => {
       setDuration("");
       setCurrentWeight("");
       setEmptyFields([]);
-      notify();
+
       dispatch(createWorkout(json));
+      queryClient.invalidateQueries("workouts");
     }
+
+    toast("New Workout Created", {
+      position: "bottom-right",
+      autoClose: 5000,
+      closeOnClick: true,
+      draggable: false,
+      type: "success",
+      toastId: 4,
+    });
   };
 
   const handleTrackActivity = (e) => {
@@ -461,10 +476,7 @@ const WorkoutForm = () => {
 
       {error && <div className="error">{error}</div>}
 
-      <ToastContainer
-        position="bottom-right"
-        autoClose={5000}
-      />
+      <ToastContainer />
     </form>
   );
 };

@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { redirect, useNavigate } from "react-router-dom";
 
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
 
 import { useUpdateProfile } from "../hooks/useProfileUpdate";
 import { useLogout } from "../hooks/useLogout";
@@ -31,7 +30,14 @@ function Profile() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    notify();
+    toast("Profile information changed", {
+      position: "bottom-right",
+      autoClose: 5000,
+      closeOnClick: true,
+      draggable: false,
+      type: "success",
+      toastId: 5,
+    });
     await updateProfile(
       firstName || user.firstName,
       lastName || user.lastName,
@@ -84,10 +90,11 @@ function Profile() {
 
       {error && <div className="error">{error}</div>}
 
-      <ToastContainer
+      {/* <ToastContainer
         position="bottom-right"
         autoClose={5000}
-      />
+        containerId={3}
+      /> */}
     </form>
   );
 }

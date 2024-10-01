@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
+import { useQueryClient } from "react-query";
 import { deleteWorkout, updateWorkout } from "../app/features/workoutSlice";
 import { selectUserAuth } from "../app/features/AuthContext";
 import { format } from "date-fns";
@@ -17,6 +16,8 @@ const WorkoutDetails = ({ workout }) => {
   const [modal, setModal] = useState(false);
   const dispatch = useDispatch();
   const user = useSelector(selectUserAuth);
+  // Get QueryClient from the context
+  const queryClient = useQueryClient();
 
   const notify = () => toast.success("Workout Deleted");
 
@@ -39,8 +40,16 @@ const WorkoutDetails = ({ workout }) => {
     const data = await response.json();
 
     if (response.ok) {
-      notify();
+      toast("New Workout Deleted", {
+        position: "bottom-right",
+        autoClose: 5000,
+        closeOnClick: true,
+        draggable: false,
+        type: "success",
+        toastId: 3,
+      });
       dispatch(deleteWorkout(data));
+      queryClient.invalidateQueries("workouts");
     }
   };
 
@@ -100,8 +109,6 @@ const WorkoutDetails = ({ workout }) => {
       ) : (
         ""
       )}
-
-      <ToastContainer />
     </div>
   );
 };
@@ -120,8 +127,12 @@ function ModalTest({ workout2, user, setModal }) {
   const [duration2, setDuration2] = useState("");
   const [currentWeight2, setCurrentWeight2] = useState("");
   const [checked2, setChecked2] = useState(false);
+  // Get QueryClient from the context
+  const queryClient = useQueryClient();
 
   const label = { inputProps: { "aria-label": "Track Calories Burned" } };
+
+  const notify = () => toast.success("Workout Updated");
 
   const handleCheckedChange = (event) => {
     setChecked2(event.target.checked);
@@ -173,8 +184,16 @@ function ModalTest({ workout2, user, setModal }) {
       setDuration2("");
       setCurrentWeight2("");
       setEmptyFields2([]);
-      toast("Workout Updated...!");
+      toast("Workout is Updated", {
+        position: "bottom-right",
+        autoClose: 5000,
+        closeOnClick: true,
+        draggable: false,
+        type: "success",
+        toastId: 2,
+      });
       dispatch(updateWorkout(json));
+      queryClient.invalidateQueries("workouts");
       setModal(false);
     }
   };
@@ -566,7 +585,6 @@ function ModalTest({ workout2, user, setModal }) {
         <button>Save Workout</button>
 
         {error2 && <div className="error">{error2}</div>}
-        
       </form>
     </div>
   );

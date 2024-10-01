@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
-import {
-  useQuery,
+import { useQuery } from "react-query";
+import { ToastContainer, toast } from "react-toastify";
 
-} from 'react-query'
 import {
   getWorkout,
   selectWorkout,
@@ -22,7 +21,7 @@ const Home = () => {
   const workouts = useSelector(selectWorkout);
   const user = useSelector(selectUserAuth);
   const dispatch = useDispatch();
-  const { isLoading, data, error } = useQuery({
+  const { isLoading, data, error } = useQuery(["workouts"], {
     queryFn: async () => {
       let response = await axios.get(
         `${process.env.REACT_APP_API_URL}/api/workouts`,
@@ -31,17 +30,20 @@ const Home = () => {
             Authorization: `Bearer ${user.token}`,
           },
         }
-      )
+      );
 
-      if (!response) throw new Error("Something went wrong with retrieving your workouts! Please refresh")
+      if (!response)
+        throw new Error(
+          "Something went wrong with retrieving your workouts! Please refresh"
+        );
 
       const data = await response.data;
 
+      dispatch(getWorkout(data));
       return data;
     },
-    retry: 1
-  })
-
+    retry: 1,
+  });
 
   // const fetchAllWorkouts = async () => {
   //   console.log('this is getting called')
@@ -74,7 +76,6 @@ const Home = () => {
   // }, [user, query.status])
 
   // useEffect(() => {
-    
 
   //   if (user !== undefined || user !== null || user.length !== 0) {
   //     fetchAllWorkouts();
@@ -94,15 +95,21 @@ const Home = () => {
           })
         ) : (
           <div>
-            {
-              error 
-              ? <p className="error">{String(error)}</p> 
-              : <p> Put Some new Workouts</p>
-            }
+            {error ? (
+              <p className="error">{String(error)}</p>
+            ) : (
+              <p> Put Some new Workouts</p>
+            )}
           </div>
         )}
       </div>
       <WorkoutForm />
+
+      {/* <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        containerId="workout"
+      /> */}
     </div>
   );
 };
