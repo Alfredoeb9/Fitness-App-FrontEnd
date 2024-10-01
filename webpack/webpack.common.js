@@ -1,46 +1,50 @@
-const path = require('path')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const { ModuleFederationPlugin } = require('webpack').container
-const deps = require('../package.json').dependencies
-const pkgname = require('../package.json').name
+const path = require("path");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const { ModuleFederationPlugin } = require("webpack").container;
+const deps = require("../package.json").dependencies;
+const pkgname = require("../package.json").name;
 const devMode = process.env.NODE_ENV !== "production";
 
 module.exports = {
   entry: [
-    'core-js/modules/es.array.iterator',
-    'core-js/stable/symbol',
-    'core-js/stable/object',
-    './src/index.jsx',
+    "core-js/modules/es.array.iterator",
+    "core-js/stable/symbol",
+    "core-js/stable/object",
+    "./src/index.tsx",
   ],
   output: {
-    publicPath: 'auto',
-    path: path.join(__dirname, '../build'),
+    publicPath: "auto",
+    path: path.join(__dirname, "../build"),
   },
-  target: ['browserslist'],
+  target: ["browserslist"],
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx'],
-    modules: ['src', 'node_modules'],
+    extensions: [".ts", ".tsx", ".js", ".jsx"],
+    modules: ["src", "node_modules"],
   },
   module: {
     rules: [
       {
         test: /\.(ts|tsx|js|jsx)?$/,
-        loader: 'babel-loader',
+        loader: "babel-loader",
         exclude: /node_modules/,
       },
       {
         test: /\.(css)$/i,
-        use: [ devMode ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
+        use: [
+          devMode ? "style-loader" : MiniCssExtractPlugin.loader,
+          "css-loader",
+          "postcss-loader",
+        ],
       },
       {
         test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
-        type: 'asset/resource',
+        type: "asset/resource",
       },
       {
         test: /\.(woff(2)?|eot|ttf|otf|svg)$/i,
-        type: 'asset/inline',
+        type: "asset/inline",
       },
     ],
   },
@@ -70,8 +74,8 @@ module.exports = {
       },
     }),
     new HtmlWebpackPlugin({
-      template: './public/index.html',
+      template: "./public/index.html",
       // favicon: './src/assets/fav/draccon.ico'
     }),
   ].concat(devMode ? [] : [new MiniCssExtractPlugin()]),
-}
+};

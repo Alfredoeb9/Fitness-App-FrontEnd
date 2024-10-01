@@ -25,7 +25,7 @@ const WorkoutForm = () => {
   // Get QueryClient from the context
   const queryClient = useQueryClient();
 
-  const handleCheckedChange = (event) => {
+  const handleCheckedChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setChecked(event.target.checked);
   };
 
@@ -33,7 +33,7 @@ const WorkoutForm = () => {
 
   const notify = () => toast.success("New Workout Created");
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!user) {
@@ -74,7 +74,7 @@ const WorkoutForm = () => {
       setTitle("");
       setLoad("");
       setReps("");
-      setSets("");
+      setSets(0);
       setError(null);
       setActivity("");
       setDuration("");
@@ -95,7 +95,7 @@ const WorkoutForm = () => {
     });
   };
 
-  const handleTrackActivity = (e) => {
+  const handleTrackActivity = (e: React.ChangeEvent<HTMLSelectElement>) => {
     e.preventDefault();
 
     setActivity(e.target.value);
@@ -133,7 +133,7 @@ const WorkoutForm = () => {
       <label>Sets</label>
       <input
         type="number"
-        onChange={(e) => setSets(e.target.value)}
+        onChange={(e) => setSets(Number(e.target.value))}
         value={sets}
         className={emptyFields.includes("sets") ? "error" : ""}
       />
@@ -141,7 +141,6 @@ const WorkoutForm = () => {
       <div>
         <label>Track Calories?</label>
         <Switch
-          label="Track Calories Burned"
           checked={checked}
           onChange={handleCheckedChange}
           inputProps={{ "aria-label": "controlled" }}

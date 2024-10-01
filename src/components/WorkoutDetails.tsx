@@ -12,7 +12,7 @@ import Switch from "@mui/material/Switch";
 import { capitalizeFirstLetter } from "../utils/capFirstLetter";
 import { calculateCaloriesBurned } from "../utils/calculateCaloriesBurned";
 
-const WorkoutDetails = ({ workout }) => {
+const WorkoutDetails = ({ workout }: any) => {
   const [modal, setModal] = useState(false);
   const dispatch = useDispatch();
   const user = useSelector(selectUserAuth);
@@ -100,8 +100,8 @@ const WorkoutDetails = ({ workout }) => {
       <p>Date: {format(new Date(workout.createdAt), "yyyy-MM-dd")}</p>
 
       <div className="workoutButtons">
-        <DeleteOutlinedIcon variant="contained" onClick={handleClick} />
-        <EditIcon variant="contained" onClick={openModal} />
+        <DeleteOutlinedIcon onClick={handleClick} />
+        <EditIcon onClick={openModal} />
       </div>
 
       {modal ? (
@@ -115,7 +115,7 @@ const WorkoutDetails = ({ workout }) => {
 
 export default WorkoutDetails;
 
-function ModalTest({ workout2, user, setModal }) {
+function ModalTest({ workout2, user, setModal }: any) {
   const dispatch = useDispatch();
   const [title2, setTitle2] = useState("");
   const [load2, setLoad2] = useState("");
@@ -134,11 +134,11 @@ function ModalTest({ workout2, user, setModal }) {
 
   const notify = () => toast.success("Workout Updated");
 
-  const handleCheckedChange = (event) => {
+  const handleCheckedChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setChecked2(event.target.checked);
   };
 
-  const handleEditWorkout = async (e) => {
+  const handleEditWorkout = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!user) {
       return;
@@ -178,7 +178,7 @@ function ModalTest({ workout2, user, setModal }) {
       setTitle2("");
       setLoad2("");
       setReps2("");
-      setSets2("");
+      setSets2(0);
       setError2(null);
       setActivity2("");
       setDuration2("");
@@ -198,7 +198,7 @@ function ModalTest({ workout2, user, setModal }) {
     }
   };
 
-  const handleTrackActivity = (e) => {
+  const handleTrackActivity = (e: React.ChangeEvent<HTMLSelectElement>) => {
     e.preventDefault();
 
     setActivity2(e.target.value);
@@ -237,7 +237,7 @@ function ModalTest({ workout2, user, setModal }) {
         <label>Sets</label>
         <input
           type="number"
-          onChange={(e) => setSets2(e.target.value)}
+          onChange={(e) => setSets2(Number(e.target.value))}
           value={sets2}
           className={emptyFields2.includes("sets") ? "error" : ""}
         />
@@ -245,7 +245,6 @@ function ModalTest({ workout2, user, setModal }) {
         <div>
           <label>Track Calories?</label>
           <Switch
-            label="Track Calories Burned"
             checked={checked2}
             onChange={handleCheckedChange}
             inputProps={{ "aria-label": "controlled" }}

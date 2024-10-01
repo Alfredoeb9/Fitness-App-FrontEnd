@@ -20,10 +20,17 @@ function Signup() {
     }
   }, [navigate, user]);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    await signup(firstName, lastName, email, password);
+    const data = {
+      firstName,
+      lastName,
+      email,
+      password,
+    };
+
+    await signup(data);
   };
 
   return (
