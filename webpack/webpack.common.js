@@ -2,9 +2,9 @@ const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const { ModuleFederationPlugin } = require("webpack").container;
-const deps = require("../package.json").dependencies;
-const pkgname = require("../package.json").name;
+// const { ModuleFederationPlugin } = require("webpack").container;
+// const deps = require("../package.json").dependencies;
+// const pkgname = require("../package.json").name;
 const devMode = process.env.NODE_ENV !== "production";
 
 module.exports = {
@@ -15,7 +15,7 @@ module.exports = {
     "./src/index.tsx",
   ],
   output: {
-    publicPath: "auto",
+    publicPath: "/",
     path: path.join(__dirname, "../build"),
   },
   target: ["browserslist"],
@@ -74,12 +74,12 @@ module.exports = {
       }
 
     */
-    new ModuleFederationPlugin({
-      name: pkgname,
-      shared: {
-        ...deps,
-      },
-    }),
+    // new ModuleFederationPlugin({
+    //   name: pkgname,
+    //   shared: {
+    //     ...deps,
+    //   },
+    // }),
     new HtmlWebpackPlugin({
       template: "./public/index.html",
       // favicon: './src/assets/fav/draccon.ico'
