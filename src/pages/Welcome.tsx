@@ -7,6 +7,7 @@ import Banner from "../components/welcome/Banner";
 import "./Welcome.css";
 import Results from "../components/welcome/Results";
 import ApplicationInfo from "../components/welcome/ApplicationInfo";
+import Footer from "../components/Footer";
 
 function Welcome() {
   return (
@@ -39,6 +40,12 @@ function Welcome() {
       <Banner />
 
       <Results />
+
+      <Banner />
+
+      {/* QA */}
+
+      <Footer />
     </div>
   );
 }
