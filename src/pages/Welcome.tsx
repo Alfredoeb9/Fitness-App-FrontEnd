@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 // import Box from "@mui/material/Box";
 // import phoneStats from "../../public/assets/fitness-phone-stats.jpg";
 // import FlagIcon from "@mui/icons-material/Flag";
-import Banner from "components/welcome/Banner";
+import Banner from "../components/welcome/Banner";
 import "./Welcome.css";
-import Results from "components/welcome/Results";
-import ApplicationInfo from "components/welcome/ApplicationInfo";
+import Results from "../components/welcome/Results";
+import ApplicationInfo from "../components/welcome/ApplicationInfo";
 
 function Welcome() {
   return (
