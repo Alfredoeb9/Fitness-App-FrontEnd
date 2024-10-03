@@ -32,10 +32,31 @@
 .results_gallery-img-container {
   max-width: 350px;
   width: 100%;
+  margin: 0 auto;
 }
 
 .results_gallery > div > img {
   width: 100%;
   max-height: 400px;
   height: 100%;
+}
+
+@media screen and (max-width: 425px) {
+  .results-container > div > h2 {
+    padding-bottom: 15px;
+  }
+
+  .results_gallery-testimonial p:last-of-type {
+    padding-bottom: 15px;
+  }
+
+  .results_gallery {
+    flex-direction: column;
+  }
+
+  .results_gallery > div:first-of-type {
+    display: none;
+    width: 0px;
+    visibility: hidden;
+  }
 }
