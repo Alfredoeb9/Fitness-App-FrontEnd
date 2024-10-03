@@ -68,20 +68,20 @@ const WorkoutForm = () => {
       setEmptyFields(json.emptyFields);
     }
 
-    if (response.ok) {
-      setTitle("");
-      setLoad("");
-      setReps("");
-      setSets(0);
-      setError(null);
-      setActivity("");
-      setDuration("");
-      setCurrentWeight("");
-      setEmptyFields([]);
+    // if (response.ok) {
+    setTitle("");
+    setLoad("");
+    setReps("");
+    setSets(0);
+    setError(null);
+    setActivity("");
+    setDuration("");
+    setCurrentWeight("");
+    setEmptyFields([]);
 
-      dispatch(createWorkout(json));
-      queryClient.invalidateQueries("workouts");
-    }
+    dispatch(createWorkout(json));
+    queryClient.invalidateQueries("workouts");
+    // }
 
     toast("New Workout Created", {
       position: "bottom-right",
@@ -109,6 +109,7 @@ const WorkoutForm = () => {
         type="text"
         onChange={(e) => setTitle(e.target.value)}
         value={title}
+        aria-label="title"
         className={emptyFields.includes("title") ? "error" : ""}
       />
 
@@ -117,6 +118,7 @@ const WorkoutForm = () => {
         type="text"
         onChange={(e) => setLoad(e.target.value)}
         value={load}
+        aria-label="load"
         className={emptyFields.includes("load") ? "error" : ""}
       />
 
@@ -125,6 +127,7 @@ const WorkoutForm = () => {
         type="text"
         onChange={(e) => setReps(e.target.value)}
         value={reps}
+        aria-label="reps"
         className={emptyFields.includes("reps") ? "error" : ""}
       />
 
@@ -133,6 +136,7 @@ const WorkoutForm = () => {
         type="number"
         onChange={(e) => setSets(Number(e.target.value))}
         value={sets}
+        aria-label="sets"
         className={emptyFields.includes("sets") ? "error" : ""}
       />
 
@@ -147,9 +151,10 @@ const WorkoutForm = () => {
         <div className={checked ? "calories-dropDown" : "hide-messages"}>
           <label>Search and Select Activity</label>
           <select
-            name="cars"
-            id="cars"
+            name="workout-dropdown"
+            id="workout-dropdown"
             onChange={(e) => handleTrackActivity(e)}
+            aria-label="workout-dropdown"
           >
             <option
               className="tt-suggestion tt-selectable"
@@ -442,6 +447,7 @@ const WorkoutForm = () => {
             <option
               className="tt-suggestion tt-selectable"
               value={"Weightlifting (vigorous effort)"}
+              aria-label="Weightlifting (vigorous effort)"
             >
               Weightlifting (vigorous effort)
             </option>
@@ -458,6 +464,7 @@ const WorkoutForm = () => {
             type="number"
             onChange={(e) => setDuration(e.target.value)}
             value={duration}
+            aria-label="duration"
           />
 
           <label>Current Weight (lbs)</label>
@@ -465,6 +472,7 @@ const WorkoutForm = () => {
             type="number"
             onChange={(e) => setCurrentWeight(e.target.value)}
             value={currentWeight}
+            aria-label="weight"
           />
         </div>
       </div>
