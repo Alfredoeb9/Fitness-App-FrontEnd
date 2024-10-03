@@ -1,16 +1,16 @@
 .welcome {
-  background: linear-gradient(
-      to right,
-      rgba(245, 246, 252, 0.52),
-      rgba(9, 1, 7, 0.73)
-    ),
-    url("/public/assets/landing-page.webp") no-repeat;
-  background-size: cover;
-  height: 90vh;
   width: 100%;
 }
 
-.welcome__container {
+.welcome__hero-section {
+  background:
+    linear-gradient(to right, rgba(245, 246, 252, 0.52), rgba(9, 1, 7, 0.73)),
+    url("/public/assets/landing-page.webp") no-repeat;
+  background-size: cover;
+  height: 90vh;
+}
+
+.welcome__hero-container {
   width: 60%;
   padding-left: 5rem;
   padding-right: 5rem;
@@ -18,22 +18,22 @@
   color: #fff;
 }
 
-.welcome__container > h3 {
+.welcome__hero-container > h3 {
   font-size: 2rem;
 }
 
-.welcome__container > h1 {
+.welcome__hero-container > h1 {
   font-size: 3.8rem;
   padding-top: 1rem;
 }
 
-.welcome__container > p {
-  font-size: 2.1rem;
+.welcome__hero-container > p {
+  font-size: 1.8rem;
   font-weight: 100;
   padding-top: 1rem;
 }
 
-.welcome__container > div {
+.welcome__hero-container > div {
   background-color: rgb(230, 73, 73);
   width: fit-content;
   color: #fff;
@@ -46,38 +46,38 @@
   transition: all 0.2s ease-in;
 }
 
-.welcome__container > div:hover {
+.welcome__hero-container > div:hover {
   scale: 1.05;
 }
 
-.welcome__container > div > a {
+.welcome__hero-container > div > a {
   text-decoration: none;
   color: #fff;
 }
 
 /* PHONE QUERIES */
 @media screen and (max-width: 425px) {
-  .welcome {
+  /* .welcome {
     height: 100vh;
-  }
+  } */
 
-  .welcome__container {
+  .welcome__hero-container {
     width: 100%;
     padding-left: 1.4rem;
     padding-right: 1.4rem;
     padding-top: 4rem;
   }
 
-  .welcome__container > h3 {
+  .welcome__hero-container > h3 {
     font-size: 1.7rem;
   }
 
-  .welcome__container > h1 {
+  .welcome__hero-container > h1 {
     font-size: 2.3rem;
     padding-top: 1rem;
   }
 
-  .welcome__container > p {
+  .welcome__hero-container > p {
     font-size: 1.3rem;
     font-weight: 100;
     padding-top: 1rem;

@@ -1,0 +1,129 @@
+.application_info {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.application_info > div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 905px;
+  align-items: center;
+  margin: 40px auto;
+}
+
+#how_it-works > h2 {
+  font-size: 48px;
+  margin-bottom: 45px;
+  /* width: 700px; */
+  font-weight: 600;
+  margin-top: 16px;
+  text-align: center;
+  line-height: 48px;
+}
+
+.application_info-image-left {
+  box-sizing: border-box;
+  display: inline-block;
+  overflow: hidden;
+  width: initial;
+  height: initial;
+  background: none;
+  opacity: 1;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  max-width: 100%;
+}
+
+.application_info-image-left > img {
+  border-radius: 15px;
+  box-sizing: border-box;
+  padding: 0;
+  border: none;
+  margin: auto;
+  display: block;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 100%;
+  max-height: 100%;
+}
+
+#application_info-right {
+  flex-direction: row;
+}
+
+.application_info-box {
+  display: grid;
+}
+
+.application_info-box > div {
+  /* max-width: 340px; */
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  /* flex-direction: column; */
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.application_info-box > div > div {
+  margin: 0px 0px 45px 70px;
+  text-align: left;
+  align-items: flex-start;
+}
+
+.application_info-num {
+  color: #0066ee;
+  font-weight: 600;
+  font-size: 68px;
+}
+
+.application_info-heading {
+  font-size: 36px;
+  line-height: 48px;
+  width: 300px;
+}
+
+.application_info-description {
+  color: #6c6c70;
+  font-size: 16px;
+  line-height: 28px;
+  margin-top: 16px;
+  width: 358px;
+  max-width: calc(100vw - 40px);
+}
+
+@media screen and (max-width: 425px) {
+  .application_info {
+    text-align: center;
+  }
+
+  .application_info-box > div {
+    margin-top: 2rem;
+    flex-direction: column;
+  }
+
+  #application_info-right {
+    flex-direction: column;
+  }
+
+  .application_info-box > div > div {
+    text-align: center;
+    margin: 0px;
+  }
+
+  .application_info-heading {
+    font-weight: 500;
+    margin: 0 auto;
+    font-size: 2rem;
+    line-height: 30px;
+  }
+
+  .application_info-image-left {
+    margin-top: 1rem;
+    padding: 0 2rem;
+  }
+}

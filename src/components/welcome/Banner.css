@@ -1,0 +1,32 @@
+#banner {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(200deg, #0066ee 60%, #9383fb 100%);
+  align-items: center;
+  color: #fff;
+}
+
+@media screen and (min-width: 992px) {
+  #banner {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  #banner > h2 {
+    font-size: 3rem;
+    line-height: 60px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  #banner {
+    padding: 2rem 2rem;
+    text-align: center;
+  }
+
+  #banner > h2 {
+    font-size: 1.6rem;
+    line-height: 40px;
+    padding-bottom: 1rem;
+  }
+}
