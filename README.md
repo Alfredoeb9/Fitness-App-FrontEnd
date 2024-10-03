@@ -1,4 +1,6 @@
-A1 Fitness is a web application that allows users to track their workouts. The application is built with a focus on delivering an intuitive and enjoyable experience for users.
+# A1 Fitness Logger
+
+A1 Fitness Logger is a web application that allows users to track their workouts. The application is built with a focus on delivering an intuitive and enjoyable experience for users.
 
 ![A1 Fitness Logger](image.png)
 
