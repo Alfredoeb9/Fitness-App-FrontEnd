@@ -134,4 +134,7 @@ it("While user is signed in, create a new workout", async () => {
   await act(async () => {
     fireEvent.click(addWorkoutBtn);
   });
+
+  const toastMessage = screen.getByText(new RegExp("New Workout Created", "i"));
+  expect(toastMessage.innerHTML).toStrictEqual("New Workout Created");
 });
