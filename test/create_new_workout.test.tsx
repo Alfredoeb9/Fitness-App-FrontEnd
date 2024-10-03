@@ -5,7 +5,6 @@ import { store } from "../src/app/store";
 import { render, screen, act, fireEvent } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import App from "../src/App";
-const { mockFetch } = require("../test/__mock__/fetchMock");
 
 const data = {
   activity: "test",
