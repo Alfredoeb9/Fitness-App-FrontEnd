@@ -16,7 +16,8 @@
 #how_it-works > h2 {
   font-size: 48px;
   margin-bottom: 45px;
-  /* width: 700px; */
+  max-width: 700px;
+  width: 100%;
   font-weight: 600;
   margin-top: 16px;
   text-align: center;
@@ -96,6 +97,46 @@
   max-width: calc(100vw - 40px);
 }
 
+/* ipads / small laptops */
+
+@media screen and (max-width: 900px) {
+  #how_it-works > h2 {
+    font-size: 2.6rem;
+  }
+
+  .application_info {
+    text-align: center;
+  }
+
+  .application_info-box > div {
+    margin-top: 0px;
+    flex-direction: column;
+    margin-bottom: 1.8rem;
+  }
+
+  #application_info-right {
+    flex-direction: column;
+  }
+
+  .application_info-box > div > div {
+    text-align: center;
+    margin: 0px;
+  }
+
+  .application_info-heading {
+    font-weight: 500;
+    margin: 0 auto;
+    font-size: 2rem;
+    line-height: 30px;
+  }
+
+  .application_info-image-left {
+    margin-top: 1rem;
+    padding: 0 2rem;
+  }
+}
+
+/* phone media */
 @media screen and (max-width: 425px) {
   .application_info {
     text-align: center;

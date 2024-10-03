@@ -18,6 +18,19 @@
   }
 }
 
+@media screen and (max-width: 990px) {
+  #banner {
+    padding: 2rem 2rem;
+    text-align: center;
+  }
+
+  #banner > h2 {
+    font-size: 1.6rem;
+    line-height: 40px;
+    padding-bottom: 1rem;
+  }
+}
+
 @media screen and (max-width: 425px) {
   #banner {
     padding: 2rem 2rem;
