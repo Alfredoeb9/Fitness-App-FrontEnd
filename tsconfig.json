@@ -11,9 +11,9 @@
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "baseUrl": "src",
+    "baseUrl": "src"
   },
 
-  "include": ["./src/**/*", "./test/**/*"],
-  "exclude": ["node_modules"],
+  "include": ["./src/**/*", "./test/**/*", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }
