@@ -33,6 +33,11 @@ const Navbar = () => {
               {/* <Avatar sx={{ bgcolor: deepOrange[500] }}></Avatar> */}
               <span className="">My Workouts</span>
             </Link>
+
+            <Link to="/workout-buddy">
+              {/* <Avatar sx={{ bgcolor: deepOrange[500] }}></Avatar> */}
+              <span>Workout Buddy</span>
+            </Link>
           </MenuItem>
           {user ? (
             <div>
