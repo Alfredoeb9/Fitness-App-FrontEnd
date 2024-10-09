@@ -1,14 +1,9 @@
 import React, { useEffect, useRef } from "react";
 import ChatList from "../components/WorkoutBuddy/ChatList";
 import "./ChatPage.css";
-import NewPrompt from "../components/WorkoutBuddy/newPrompt";
+import NewPrompt from "../components/WorkoutBuddy/NewPrompt";
 
 function ChatPage() {
-  const endRef = useRef<HTMLDivElement>(null);
-
-  // useEffect(() => {
-  //   endRef.current?.scrollIntoView({ behavior: "smooth" });
-  // });
   return (
     <main className="chatPage_container">
       <div className="menu">
@@ -39,7 +34,6 @@ function ChatPage() {
             <div className="message user"> Test Message from user</div>
 
             <NewPrompt />
-            <div ref={endRef} />
           </div>
         </div>
       </div>
