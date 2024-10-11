@@ -8,6 +8,7 @@ module.exports = {
     "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
       "<rootDir>/test/__mock__/fileMock.ts",
     "\\.(css|less)$": "<rootDir>/test/__mock__/styleMock.ts",
+    "react-markdown": "<rootDir>/test/__mock__/react-markdown.tsx",
   },
   testEnvironment: "<rootDir>/test/test-config/env-setup.js",
   setupFilesAfterEnv: [
@@ -15,4 +16,5 @@ module.exports = {
     "<rootDir>/test/hooks/beforeAll.ts",
     "<rootDir>/test/hooks/afterEach.ts",
   ],
+  transformIgnorePatterns: ["<rootDir>/node_modules/(?!react-markdown)"],
 };
