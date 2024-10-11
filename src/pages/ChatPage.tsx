@@ -6,7 +6,7 @@ import ChatList from "../components/WorkoutBuddy/ChatList";
 import { useAppSelector } from "../app/hooks";
 import { selectUserAuth } from "../app/features/AuthContext";
 import NewPrompt from "../components/WorkoutBuddy/NewPrompt";
-import "./ChatPage.css";
+import "./chatPage.css";
 
 function ChatPage() {
   const user = useAppSelector(selectUserAuth);
