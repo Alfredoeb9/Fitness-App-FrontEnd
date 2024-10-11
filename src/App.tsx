@@ -17,8 +17,8 @@ import "./App.css";
 import PrivateRoutes from "./components/PrivateRoutes";
 import Welcome from "./pages/Welcome";
 import { useAppDispatch } from "./app/hooks";
-import WorkoutBuddy from "pages/WorkoutBuddy";
-import ChatPage from "pages/ChatPage";
+import WorkoutBuddy from "./pages/WorkoutBuddy";
+import ChatPage from "./pages/ChatPage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(

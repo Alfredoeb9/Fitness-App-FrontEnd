@@ -12,6 +12,7 @@
     justify-content: center;
     width: 50%;
     gap: 50px;
+    color: #fff;
   }
 
   h1 {
@@ -32,6 +33,7 @@
     align-items: center;
     justify-content: space-around;
     gap: 50px;
+    color: #fff;
 
     .option {
       flex: 1;
@@ -92,6 +94,34 @@
           background-color: #1a5fbb;
         }
       }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .chatDashboard {
+    .chatDashboard__formContainer {
+      width: 100%;
+      padding: 0px 10px;
+    }
+
+    .options {
+      gap: 25px;
+      padding: 0px 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .chatDashboard {
+    .chatDashboard__formContainer {
+      width: 100%;
+      padding: 0px 10px;
+    }
+
+    .options {
+      gap: 25px;
+      padding: 0px 10px;
     }
   }
 }

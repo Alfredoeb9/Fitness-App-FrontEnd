@@ -154,3 +154,13 @@
     font-weight: 600;
   }
 }
+
+@media screen and (max-width: 425px) {
+  .site-footer {
+    .container {
+      .row {
+        align-items: flex-start;
+      }
+    }
+  }
+}
