@@ -133,7 +133,7 @@ function NewPrompt({ data }: NewPromptProps) {
           <Markdown>{answer}</Markdown>
         </div>
       )}
-      {/* <div className="endChat" ref={endRef}></div> */}
+      <div className="endChat" ref={endRef}></div>
       <form className="newForm" onSubmit={handleSubmit} ref={formRef}>
         <input type="text" name="question" placeholder="Type a message" />
         <button>Send</button>
