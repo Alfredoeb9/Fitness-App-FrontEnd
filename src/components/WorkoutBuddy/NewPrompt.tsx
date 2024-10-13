@@ -116,7 +116,7 @@ function NewPrompt({ data }: NewPromptProps) {
   const hasRun = useRef(false);
 
   useEffect(() => {
-    if (process.env.NODE_ENV === "development" && !hasRun.current) {
+    if (!hasRun.current) {
       if (data?.chat?.history.length === 1) {
         add(data.chat.history[0].parts[0].text, true);
       }
