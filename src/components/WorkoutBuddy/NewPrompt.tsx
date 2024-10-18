@@ -113,7 +113,7 @@ function NewPrompt({ data }: NewPromptProps) {
     add(text);
   };
 
-  const hasRun = useRef(false);
+  // const hasRun = useRef(false);
 
   // useEffect(() => {
   //   if (!hasRun.current) {
