@@ -28,7 +28,7 @@ function ChatDashboard() {
 
       const json = await response.json();
 
-      setAnswer(json.result);
+      console.log("json", json);
 
       return json;
     },

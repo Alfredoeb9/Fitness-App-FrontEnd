@@ -72,7 +72,7 @@ function NewPrompt({ data }: NewPromptProps) {
     },
   });
 
-  const add = async (text: string, isInitial?: boolean) => {
+  const add = (text: string, isInitial?: boolean) => {
     try {
       if (!isInitial) setQuestion(text);
 
@@ -115,15 +115,15 @@ function NewPrompt({ data }: NewPromptProps) {
 
   const hasRun = useRef(false);
 
-  useEffect(() => {
-    if (!hasRun.current) {
-      if (data?.chat?.history.length === 1) {
-        add(data.chat.history[0].parts[0].text, true);
-      }
-    }
+  // useEffect(() => {
+  //   if (!hasRun.current) {
+  //     if (data?.chat?.history.length === 1) {
+  //       add(data.chat.history[0].parts[0].text, true);
+  //     }
+  //   }
 
-    hasRun.current = true;
-  }, []);
+  //   hasRun.current = true;
+  // }, []);
 
   return (
     <>

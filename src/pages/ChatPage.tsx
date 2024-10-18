@@ -32,9 +32,11 @@ function ChatPage() {
 
       return data;
     },
-    retry: 1,
+    // retry: 1,
     enabled: !!user,
   });
+
+  console.log("data", data);
 
   return (
     <main className="chatPage_container">
