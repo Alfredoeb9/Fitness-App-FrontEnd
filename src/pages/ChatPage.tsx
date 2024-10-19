@@ -32,7 +32,6 @@ function ChatPage() {
 
       return data;
     },
-    retry: 1,
     enabled: !!user,
   });
 

@@ -37,7 +37,7 @@ const Home = () => {
       dispatch(getWorkout(data));
       return data;
     },
-    retry: 1,
+    // retry: 1,
   });
 
   // const fetchAllWorkouts = async () => {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useAppSelector } from "../../app/hooks";
 import { selectUserAuth } from "../../app/features/AuthContext";
 import { useMutation, useQueryClient } from "react-query";
@@ -9,8 +9,6 @@ function ChatDashboard() {
   const queryClient = useQueryClient();
   const navigate = useNavigate();
   const user = useAppSelector(selectUserAuth);
-  // const [question, setQuestion] = useState("");
-  const [answer, setAnswer] = useState("");
 
   const mutation = useMutation({
     mutationFn: async (text: string) => {
@@ -27,8 +25,6 @@ function ChatDashboard() {
       );
 
       const json = await response.json();
-
-      setAnswer(json.result);
 
       return json;
     },
