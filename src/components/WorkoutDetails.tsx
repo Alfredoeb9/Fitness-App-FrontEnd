@@ -12,7 +12,19 @@ import { capitalizeFirstLetter } from "../utils/capFirstLetter";
 import { calculateCaloriesBurned } from "../utils/calculateCaloriesBurned";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 
-const WorkoutDetails = ({ workout }: any) => {
+interface Workout {
+  _id: string;
+  title: string;
+  load: number;
+  reps: number;
+  sets: number;
+  activity: string;
+  duration: number;
+  currentWeight: number;
+  createdAt: string;
+}
+
+const WorkoutDetails = ({ workout }: { workout: Workout }) => {
   const [modal, setModal] = useState(false);
   const dispatch = useAppDispatch();
   const user = useAppSelector(selectUserAuth);
@@ -103,7 +115,7 @@ const WorkoutDetails = ({ workout }: any) => {
       </div>
 
       {modal ? (
-        <ModalTest workout2={workout} user={user} setModal={setModal} />
+        <ModalAddWorkout workout2={workout} user={user} setModal={setModal} />
       ) : (
         ""
       )}
@@ -113,7 +125,19 @@ const WorkoutDetails = ({ workout }: any) => {
 
 export default WorkoutDetails;
 
-function ModalTest({ workout2, user, setModal }: any) {
+interface UserTypes {
+  token: string;
+}
+
+function ModalAddWorkout({
+  workout2,
+  user,
+  setModal,
+}: {
+  workout2: Workout;
+  user: UserTypes;
+  setModal: React.Dispatch<React.SetStateAction<boolean>>;
+}) {
   const dispatch = useAppDispatch();
   const [title2, setTitle2] = useState("");
   const [load2, setLoad2] = useState("");
@@ -198,6 +222,8 @@ function ModalTest({ workout2, user, setModal }: any) {
 
   const handleTrackActivity = (e: React.ChangeEvent<HTMLSelectElement>) => {
     e.preventDefault();
+
+    if (e.target.value.length === 0) throw new Error("Activity is required");
 
     setActivity2(e.target.value);
   };

@@ -39,6 +39,11 @@ const WorkoutForm = () => {
       return;
     }
 
+    if (!title || !load || !reps || !sets) {
+      setError("All fields are required");
+      return;
+    }
+
     const workout = {
       title,
       load,
@@ -111,6 +116,7 @@ const WorkoutForm = () => {
         value={title}
         aria-label="title"
         className={emptyFields.includes("title") ? "error" : ""}
+        required
       />
 
       <label>Load (lbs):</label>
@@ -120,6 +126,7 @@ const WorkoutForm = () => {
         value={load}
         aria-label="load"
         className={emptyFields.includes("load") ? "error" : ""}
+        required
       />
 
       <label>Reps:</label>
@@ -129,6 +136,7 @@ const WorkoutForm = () => {
         value={reps}
         aria-label="reps"
         className={emptyFields.includes("reps") ? "error" : ""}
+        required
       />
 
       <label>Sets</label>
@@ -138,6 +146,7 @@ const WorkoutForm = () => {
         value={sets}
         aria-label="sets"
         className={emptyFields.includes("sets") ? "error" : ""}
+        required
       />
 
       <div>
