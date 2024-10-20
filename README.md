@@ -22,7 +22,9 @@ The following technologies have been used to develop Musical Mousse:
 
     7. Vercel: A platform for deploying and hosting web applications.
 
-    8. Github Actions: CI/CD process to ensure proper build, and unit testing
+    8. Github Actions: CI/CD process to ensure proper build, and unit testing.
+
+    9. Google Gemini for Workout Buddy AI chat feature.
 
 ### TODO
 
@@ -35,4 +37,4 @@ These are a list of features I want to integrate.
     [x]  - Implement webpack for serve and build process
     [x]  - Convert project to typescript
     [x] - Implement unit testing
-    [50%] - Replace useEffect fetch calls with react query
+    [100%] - Replace useEffect fetch calls with react query
