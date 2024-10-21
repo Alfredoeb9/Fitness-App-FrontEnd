@@ -1,26 +1,11 @@
 import "@testing-library/jest-dom";
 import React from "react";
-import { Provider } from "react-redux";
-import { store } from "../src/app/store";
-import { render, screen, act } from "@testing-library/react";
-import { QueryClient, QueryClientProvider } from "react-query";
+import { screen } from "@testing-library/react";
 import App from "../src/App";
+import { renderWithProviders } from "./utils/test-utils";
 
 it("if no user is signed in then redirect to login page", async () => {
-  // Create a client
-  const queryClient = new QueryClient();
-
-  const MockApp = () => {
-    return (
-      <Provider store={store}>
-        <QueryClientProvider client={queryClient}>
-          <App />
-        </QueryClientProvider>
-      </Provider>
-    );
-  };
-
-  await act(() => render(<MockApp />));
+  renderWithProviders(<App />);
 
   // get user from localstorage
   const user = JSON.parse(localStorage.getItem("user"));
