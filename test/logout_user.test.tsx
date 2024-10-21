@@ -1,10 +1,8 @@
 import "@testing-library/jest-dom";
 import React from "react";
-import { Provider } from "react-redux";
-import { store } from "../src/app/store";
-import { render, screen, act, fireEvent, within } from "@testing-library/react";
-import { QueryClient, QueryClientProvider } from "react-query";
+import { screen, fireEvent, within } from "@testing-library/react";
 import App from "../src/App";
+import { renderWithProviders } from "./utils/test-utils";
 
 describe("test", () => {
   beforeEach(() => {
@@ -17,19 +15,7 @@ describe("test", () => {
   });
 
   test("if user is signed in then log out button should appear within navbar dropdown", async () => {
-    // Create a client
-    const queryClient = new QueryClient();
-    const MockApp = () => {
-      return (
-        <Provider store={store}>
-          <QueryClientProvider client={queryClient}>
-            <App />
-          </QueryClientProvider>
-        </Provider>
-      );
-    };
-
-    await act(() => render(<MockApp />));
+    renderWithProviders(<App />);
 
     // get user from localstorage
     const user = JSON.parse(localStorage.getItem("user"));

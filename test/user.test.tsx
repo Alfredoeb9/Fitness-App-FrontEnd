@@ -1,10 +1,8 @@
 import "@testing-library/jest-dom";
 import React from "react";
-import { Provider } from "react-redux";
-import { store } from "../src/app/store";
-import { render, screen, act } from "@testing-library/react";
-import { QueryClient, QueryClientProvider } from "react-query";
+import { screen } from "@testing-library/react";
 import App from "../src/App";
+import { renderWithProviders } from "./utils/test-utils";
 
 beforeEach(() => {
   let json = {
@@ -13,24 +11,23 @@ beforeEach(() => {
     lastName: "tester",
   };
   localStorage.setItem("user", JSON.stringify(json));
-  // dispatch(login(json));
 });
 
 it("if user is signed in then redirect workout page", async () => {
-  // Create a client
-  const queryClient = new QueryClient();
-
-  const MockApp = () => {
-    return (
-      <Provider store={store}>
-        <QueryClientProvider client={queryClient}>
-          <App />
-        </QueryClientProvider>
-      </Provider>
-    );
-  };
-
-  await act(() => render(<MockApp />));
+  renderWithProviders(<App />, {
+    preloadedState: {
+      user: {
+        user: {
+          email: "test@gmail",
+          firstName: "test",
+          lastName: "tester",
+        },
+      },
+      workout: {
+        workout: [],
+      },
+    },
+  });
 
   // get user from localstorage
   const user = JSON.parse(localStorage.getItem("user"));
@@ -40,6 +37,8 @@ it("if user is signed in then redirect workout page", async () => {
     firstName: "test",
     lastName: "tester",
   });
+
+  screen.debug(undefined, Infinity);
 
   const workoutScreen = screen.getByText(
     new RegExp("Put Some new Workouts")

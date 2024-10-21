@@ -1,8 +1,6 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { useLocation } from "react-router-dom";
 import { useQuery } from "react-query";
-import { getWorkout, selectWorkout } from "../app/features/workoutSlice";
+import { getWorkout } from "../app/features/workoutSlice";
 import { selectUserAuth } from "../app/features/AuthContext";
 import axios from "axios";
 import "./Home.css";
@@ -11,9 +9,6 @@ import WorkoutForm from "../components/WorkoutForm";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 
 const Home = () => {
-  // const [workouts, setWorkouts] = useState(null);
-  const location = useLocation();
-  const workouts = useAppSelector(selectWorkout);
   const user = useAppSelector(selectUserAuth);
   const dispatch = useAppDispatch();
   const { isLoading, data, error } = useQuery(["workouts"], {
@@ -34,10 +29,13 @@ const Home = () => {
 
       const data = await response.data;
 
-      dispatch(getWorkout(data));
       return data;
     },
-    // retry: 1,
+
+    onSuccess: (data) => {
+      dispatch(getWorkout(data));
+    },
+    enabled: !!user,
   });
 
   // const fetchAllWorkouts = async () => {

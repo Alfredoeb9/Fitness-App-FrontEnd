@@ -2,7 +2,19 @@ import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "app/store";
 
 type WorkoutState = {
-  workout: any;
+  workout:
+    | {
+        _id?: string;
+        title: string;
+        load: number;
+        reps: number;
+        sets: number;
+        controlled?: boolean;
+        duration?: number;
+        weight?: number;
+        workoutType?: string;
+      }[]
+    | null;
 };
 
 const initialState: WorkoutState = {
@@ -29,13 +41,13 @@ export const workoutSlice = createSlice({
 
     deleteWorkout: (state, action) => {
       state.workout = state.workout.filter(
-        (workout: { _id: any }) => workout._id !== action.payload._id
+        (workout) => workout._id !== action.payload._id
       );
     },
 
     updateWorkout: (state, action) => {
       state.workout = state.workout.filter(
-        (workout: { _id: any }) => workout._id !== action.payload._id
+        (workout) => workout._id !== action.payload._id
       );
       state.workout = [action.payload, ...state.workout];
     },

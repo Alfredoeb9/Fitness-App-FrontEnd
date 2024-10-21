@@ -1,4 +1,9 @@
-import { combineReducers, configureStore, Tuple } from "@reduxjs/toolkit";
+import {
+  combineReducers,
+  configureStore,
+  Tuple,
+  EnhancedStore,
+} from "@reduxjs/toolkit";
 import { persistReducer, persistStore } from "redux-persist";
 import { thunk } from "redux-thunk";
 import workoutReducer from "./features/workoutSlice";
@@ -64,13 +69,19 @@ const authXReducer = combineReducers({
 
 const persistedReducer = persistReducer(persistAuthConfig, authXReducer);
 
-export const store = configureStore({
+// Declare and initialize preloadedState
+const preloadedState: Partial<RootState> = {};
+
+export const store: ReturnType<typeof configureStore> = configureStore({
   reducer: persistedReducer,
+  preloadedState,
   devTools: true,
   middleware: () => new Tuple(thunk),
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
-export type RootState = ReturnType<typeof store.getState>;
+export type RootState = ReturnType<typeof authXReducer>;
 // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
-export type AppDispatch = typeof store.dispatch;
+export default authXReducer;
+export type AppStore = EnhancedStore<RootState>;
+export type AppDispatch = AppStore["dispatch"];

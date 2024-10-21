@@ -1,19 +1,11 @@
 import "@testing-library/jest-dom";
 import React from "react";
-import { Provider } from "react-redux";
-import { store } from "../src/app/store";
-import { render, screen, act, waitFor } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import App from "../src/App";
+import { renderWithProviders } from "./utils/test-utils";
 
 it("login page should have email and password as input fields with a button that says log in", async () => {
-  const MockApp = () => {
-    return (
-      <Provider store={store}>
-        <App />
-      </Provider>
-    );
-  };
-  await act(() => render(<MockApp />));
+  renderWithProviders(<App />);
 
   const emailInput = screen.getByLabelText(
     new RegExp("email", "i")

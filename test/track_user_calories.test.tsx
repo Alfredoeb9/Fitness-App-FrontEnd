@@ -1,16 +1,8 @@
 import "@testing-library/jest-dom";
 import React from "react";
-import { Provider } from "react-redux";
-import { store } from "../src/app/store";
-import {
-  render,
-  screen,
-  act,
-  fireEvent,
-  waitFor,
-} from "@testing-library/react";
-import { QueryClient, QueryClientProvider } from "react-query";
+import { screen, act, fireEvent } from "@testing-library/react";
 import App from "../src/App";
+import { renderWithProviders } from "./utils/test-utils";
 
 beforeEach(() => {
   let json = {
@@ -19,8 +11,6 @@ beforeEach(() => {
     lastName: "tester",
   };
   localStorage.setItem("user", JSON.stringify(json));
-
-  // window.fetch = mockFetch(data);
 });
 
 // Mock fetch
@@ -56,19 +46,7 @@ global.fetch = jest.fn(() =>
 );
 
 it("While user is signed in, creates a new workout and tracks calories", async () => {
-  const queryClient = new QueryClient();
-
-  const MockApp = () => {
-    return (
-      <Provider store={store}>
-        <QueryClientProvider client={queryClient}>
-          <App />
-        </QueryClientProvider>
-      </Provider>
-    );
-  };
-
-  render(<MockApp />);
+  renderWithProviders(<App />);
 
   const user = JSON.parse(localStorage.getItem("user"));
 
