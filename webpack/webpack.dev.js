@@ -21,7 +21,7 @@ module.exports = merge(common, {
     hot: false,
     compress: true,
     port: 3002,
-    host: "localhost",
+    host: "0.0.0.0",
     historyApiFallback: true,
   },
 });
