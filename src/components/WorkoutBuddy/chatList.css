@@ -73,6 +73,32 @@
       color: rgb(41, 127, 240);
     } */
   }
+
+  .workout_buddy-chat {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #1f1d2b;
+    border-radius: 10px;
+  }
+
+  .workout_buddy-delete {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    height: 100%;
+    width: 60px;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px 0;
+    background-color: #1f1d2b;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #2c2937;
+    }
+  }
 }
 
 .workout_buddy-nav::-webkit-scrollbar {
