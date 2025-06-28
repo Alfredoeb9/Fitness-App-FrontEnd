@@ -44,7 +44,7 @@ export default function ChatList() {
         ) : (
           <>
             {data?.chats?.map((chat: { _id: React.Key; title: string }) => (
-              <Link key={chat._id} to={`/workout-buddy/chat/${chat._id}`}>
+              <Link className="workout_buddy-link" key={chat._id} to={`/workout-buddy/chat/${chat._id}`}>
                 {chat.title}
               </Link>
             ))}
