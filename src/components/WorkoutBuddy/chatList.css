@@ -123,11 +123,27 @@
     height: 500px;
 
     .workout_buddy-title {
-      font-size: 28px;
+      font-size: 24px;
       margin-bottom: 5px;
     }
 
+    .workout_buddy-link {
+      font-size: 17.5px;
+      font-weight: 400;
+      padding: 5px;
+      margin: 3px 0;
+    }
+
     a {
+      padding: 5px;
+    }
+
+    .workout_buddy-delete {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      height: 100%;
+      width: 40px;
       padding: 5px;
     }
   }
