@@ -40,13 +40,13 @@ const router = createBrowserRouter(
 function App() {
   const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("user"));
+  // useEffect(() => {
+  //   const user = JSON.parse(localStorage.getItem("user"));
 
-    if (user) {
-      dispatch(login(user));
-    }
-  }, [dispatch]);
+  //   if (user) {
+  //     dispatch(login(user));
+  //   }
+  // }, [dispatch]);
   return <RouterProvider router={router} />;
 }
 

@@ -11,28 +11,33 @@ export const useLogin = () => {
     setIsLoading(true);
     setError(null);
 
-    const response = await fetch(
-      `${process.env.REACT_APP_API_URL}/api/user/login`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
+    try {
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URL}/api/user/login`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password }),
+        }
+      );
+
+      const json = await response.json();
+
+      if (!response.ok) {
+        setIsLoading(false);
+        setError(json.error);
+        return;
       }
-    );
-
-    const json = await response.json();
-
-    if (!response.ok) {
-      setIsLoading(false);
-      setError(json.error);
-    }
-
-    if (response.ok) {
-      // save to localStorage
-      localStorage.setItem("user", JSON.stringify(json));
+      
       dispatch(login(json));
       setIsLoading(false);
-    }
+
+      return json;
+    } catch (error) {
+      console.error('Network error:', error);
+      setError('Network error - please check if the server is running');
+      setIsLoading(false); 
+    }    
   };
 
   return { login2, error, isLoading };

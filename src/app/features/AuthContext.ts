@@ -3,10 +3,18 @@ import { RootState } from "../store";
 
 type UserState = {
   user: any;
+  isError: boolean;
+  isSuccess: boolean;
+  isLoading: boolean;
+  message: string;
 };
 
 const initialState: UserState = {
   user: null,
+  isError: false,
+  isSuccess: false,
+  isLoading: false,
+  message: "",
 };
 
 export const userAuthSlice = createSlice({
@@ -17,10 +25,18 @@ export const userAuthSlice = createSlice({
     // Use the PayloadAction type to declare the contents of `action.payload`
     login: (state, action) => {
       state.user = action.payload;
+      state.isError = false;
+      state.isSuccess = true;
+      state.isLoading = false;
+      state.message = "USER_SIGNED_IN";
     },
 
     logout: (state) => {
       state.user = null;
+      state.isError = false;
+      state.isSuccess = false;
+      state.isLoading = false;
+      state.message = "";
     },
     updateUser: (state, action) => {
       state.user = action.payload;
