@@ -15,7 +15,24 @@ describe("test", () => {
   });
 
   test("if user is signed in then log out button should appear within navbar dropdown", async () => {
-    renderWithProviders(<App />);
+    renderWithProviders(<App />, {
+      preloadedState: {
+        user: {
+          user: {
+            email: "test@gmail",
+            firstName: "test",
+            lastName: "tester",
+          },
+          isError: false,
+          isSuccess: true,
+          isLoading: false,
+          message: "USER_SIGNED_IN",
+        },
+        workout: {
+          workout: [],
+        },
+      },
+    });
 
     // get user from localstorage
     const user = JSON.parse(localStorage.getItem("user"));
@@ -35,8 +52,6 @@ describe("test", () => {
     const button = within(selectNavElement).getByRole("combobox");
 
     fireEvent.mouseDown(button);
-
-    // screen.debug(undefined, Infinity);
 
     const listbox = within(screen.getByRole("presentation")).getByRole(
       "listbox"

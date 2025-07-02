@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom";
 import React from "react";
-import { render, screen, act, fireEvent } from "@testing-library/react";
+import { screen, act, fireEvent } from "@testing-library/react";
 import App from "../src/App";
 import { renderWithProviders } from "./utils/test-utils";
 
@@ -20,6 +20,15 @@ const localWorkout = [
   },
 ];
 
+global.fetch = jest.fn(() =>
+  Promise.resolve({
+    ok: true,
+    status: 200,
+    json: () =>
+      Promise.resolve(localWorkout),
+  })
+) as jest.Mock;
+
 beforeEach(() => {
   let json = {
     email: "test@gmail",
@@ -27,39 +36,9 @@ beforeEach(() => {
     lastName: "tester",
   };
   localStorage.setItem("user", JSON.stringify(json));
-});
 
-// Mock fetch
-global.fetch = jest.fn(() =>
-  Promise.resolve({
-    ok: true,
-    status: 200,
-    json: () =>
-      Promise.resolve({
-        data: {
-          activity: "test",
-          currentWeight: "160",
-          duration: "20",
-          load: "123",
-          reps: "2",
-          sets: 2,
-          title: "test",
-        },
-      }),
-    headers: new Headers(),
-    redirected: false,
-    statusText: "OK",
-    type: "basic",
-    url: "",
-    clone: jest.fn(),
-    body: null,
-    bodyUsed: false,
-    arrayBuffer: jest.fn(),
-    blob: jest.fn(),
-    formData: jest.fn(),
-    text: jest.fn(),
-  } as Response)
-);
+  (fetch as jest.Mock).mockClear();
+});
 
 jest.mock("react-query", () => {
   const originalModule = jest.requireActual("react-query");
@@ -88,7 +67,22 @@ jest.mock("react-query", () => {
 
 it("Given a user is logged in, when the user deletes a workout, then the workout is removed from the user's workout list", async () => {
   renderWithProviders(<App />, {
-    preloadedState: { workout: { workout: localWorkout } },
+    preloadedState: { 
+      user: {
+        user: {
+          email: "test@gmail",
+          firstName: "test",
+          lastName: "tester",
+        },
+        isError: false,
+        isSuccess: true,
+        isLoading: false,
+        message: "USER_SIGNED_IN",
+      },
+      workout: { 
+        workout: localWorkout 
+      } 
+    },
   });
 
   const user = JSON.parse(localStorage.getItem("user"));

@@ -22,6 +22,10 @@ it("if user is signed in then redirect workout page", async () => {
           firstName: "test",
           lastName: "tester",
         },
+        isError: false,
+        isSuccess: true,
+        isLoading: false,
+        message: "USER_SIGNED_IN",
       },
       workout: {
         workout: [],
@@ -37,8 +41,6 @@ it("if user is signed in then redirect workout page", async () => {
     firstName: "test",
     lastName: "tester",
   });
-
-  screen.debug(undefined, Infinity);
 
   const workoutScreen = screen.getByText(
     new RegExp("Put Some new Workouts")

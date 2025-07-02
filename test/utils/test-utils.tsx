@@ -7,7 +7,6 @@ import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 
 import type { AppStore, RootState } from "../../src/app/store";
-// As a basic setup, import your same slice reducers
 import authXReducer from "../../src/app/store";
 
 // This type interface extends the default options for render from RTL, as well
@@ -15,6 +14,7 @@ import authXReducer from "../../src/app/store";
 interface ExtendedRenderOptions extends Omit<RenderOptions, "queries"> {
   preloadedState?: Partial<RootState>;
   store?: AppStore;
+  route?: string;
 }
 
 export function renderWithProviders(
@@ -29,7 +29,13 @@ export function renderWithProviders(
     ...renderOptions
   }: ExtendedRenderOptions = {}
 ) {
-  const queryClient = new QueryClient();
+
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: { retry: false },
+      mutations: { retry: false },
+    },
+  });
 
   function Wrapper({ children }: PropsWithChildren<{}>): JSX.Element {
     return (

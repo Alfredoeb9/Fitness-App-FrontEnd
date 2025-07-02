@@ -4,6 +4,27 @@ import { screen, act, fireEvent } from "@testing-library/react";
 import App from "../src/App";
 import { renderWithProviders } from "./utils/test-utils";
 
+global.fetch = jest.fn(() =>
+  Promise.resolve({
+    ok: true,
+    status: 200,
+    json: () =>
+      Promise.resolve({
+        _id: "1",
+        title: "Bench Press",
+        load: 180,
+        reps: 12,
+        sets: 3,
+        controlled: true,
+        duration: 20,
+        createdAt: "2021-09-29T00:00:00.000Z",
+        activity: "Weightlifting (vigorous effort)",
+        currentWeight: 180,
+        user_id: "1",
+      }),
+  })
+) as jest.Mock;
+
 beforeEach(() => {
   let json = {
     email: "test@gmail",
@@ -11,42 +32,29 @@ beforeEach(() => {
     lastName: "tester",
   };
   localStorage.setItem("user", JSON.stringify(json));
+
+  (fetch as jest.Mock).mockClear();
 });
 
-// Mock fetch
-global.fetch = jest.fn(() =>
-  Promise.resolve({
-    ok: true,
-    status: 200,
-    json: () =>
-      Promise.resolve({
-        data: {
-          activity: "test",
-          currentWeight: "160",
-          duration: "20",
-          load: "123",
-          reps: "2",
-          sets: 2,
-          title: "test",
-        },
-      }),
-    headers: new Headers(),
-    redirected: false,
-    statusText: "OK",
-    type: "basic",
-    url: "",
-    clone: jest.fn(),
-    body: null,
-    bodyUsed: false,
-    arrayBuffer: jest.fn(),
-    blob: jest.fn(),
-    formData: jest.fn(),
-    text: jest.fn(),
-  } as Response)
-);
-
 it("While user is signed in, create a new workout", async () => {
-  renderWithProviders(<App />);
+  renderWithProviders(<App />, {
+    preloadedState: {
+      user: {
+        user: {
+          email: "test@gmail",
+          firstName: "test",
+          lastName: "tester",
+        },
+        isError: false,
+        isSuccess: true,
+        isLoading: false,
+        message: "USER_SIGNED_IN",
+      },
+      workout: {
+        workout: [],
+      },
+    },
+  });
 
   const user = JSON.parse(localStorage.getItem("user"));
 

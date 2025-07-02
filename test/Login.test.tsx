@@ -1,10 +1,9 @@
-import "@testing-library/jest-dom";
 import React from "react";
 import { screen } from "@testing-library/react";
-import App from "../src/App";
 import { renderWithProviders } from "./utils/test-utils";
+import App from "../src/App";
 
-it("login page should have email and password as input fields with a button that says log in", async () => {
+it("login page should have email and password as input fields with a button that says log in", async () => {  
   renderWithProviders(<App />);
 
   const emailInput = screen.getByLabelText(
