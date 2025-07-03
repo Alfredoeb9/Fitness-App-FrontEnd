@@ -38,12 +38,14 @@ function Login() {
         value={email}
       />
 
-      <label>Password:</label>
+      <label htmlFor="password-input">Password:</label>
       <div className="input_Group">
         <input
+          id="password-input"
           type={`${show.password ? "text" : "password"}`}
           onChange={(e) => setPassword(e.target.value)}
           value={password}
+          aria-label="password"
         />
         <span
           onClick={() => setShow({ ...show, password: !show.password })}
