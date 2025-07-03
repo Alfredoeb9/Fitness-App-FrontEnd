@@ -41,9 +41,6 @@ const WorkoutDetails = ({ workout }: { workout: Workout }) => {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${user.token}`,
-          "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Headers":
-            "Origin, X-Requested-With, Content-Type, Accept",
         },
       }
     );
@@ -182,9 +179,8 @@ function ModalAddWorkout({
         method: "PUT",
         body: JSON.stringify(workout),
         headers: {
-          Authorization: `Bearer ${user.token}`,
           "Content-Type": "application/json",
-          "Access-Control-Allow-Methods": "PUT",
+          Authorization: `Bearer ${user.token}`,
         },
       }
     );
