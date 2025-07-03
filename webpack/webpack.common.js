@@ -29,9 +29,65 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(ts|tsx|js|jsx)?$/,
-        loader: "babel-loader",
+        test: /\.(ts|tsx)?$/,
         exclude: /node_modules/,
+        use: [
+          {
+            loader: "babel-loader",
+            options: {
+              presets: [
+                ['@babel/preset-env', {
+                  corejs: { version: 3 },
+                  useBuiltIns: 'usage',
+                  targets: {
+                    edge: '17',
+                    firefox: '60',
+                    chrome: '67',
+                    safari: '11.1',
+                  },
+                }],
+                ['@babel/preset-react', { 
+                  runtime: 'automatic' 
+                }],
+                ['@babel/preset-typescript', {
+                  isTSX: true,
+                  allExtensions: true,
+                }],
+              ],
+              plugins: [
+                ['@babel/plugin-proposal-decorators', { decoratorsBeforeExport: true }],
+                ['@babel/plugin-transform-runtime'],
+              ],
+            },
+          }
+        ]
+
+      },
+      {
+        test: /\.(jsx|js)$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: "babel-loader",
+            options: {
+              presets: [
+                ['@babel/preset-env', {
+                  corejs: { version: 3 },
+                  useBuiltIns: 'usage',
+                  targets: {
+                    edge: '17',
+                    firefox: '60',
+                    chrome: '67',
+                    safari: '11.1',
+                  },
+                }],
+                ['@babel/preset-react', { 
+                  runtime: 'automatic' 
+                }],
+              ],
+            },
+          },
+        ],
       },
       {
         test: /\.(css)$/i,
