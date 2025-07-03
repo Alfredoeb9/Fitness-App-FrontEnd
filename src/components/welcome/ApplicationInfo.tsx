@@ -1,6 +1,6 @@
 import React from "react";
 import Box from "@mui/material/Box";
-import phoneStats from "../../../public/assets/fitness-phone-stats.jpg";
+import phoneStats from "../../assets/fitness-phone-stats.jpg";
 import FlagIcon from "@mui/icons-material/Flag";
 import "./ApplicationInfo.css";
 

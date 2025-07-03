@@ -1,6 +1,6 @@
 import { Box, Container } from "@mui/material";
 import React from "react";
-import FitnessImage2 from "../../../public/assets/fitness-image-2.jpg";
+import FitnessImage2 from "../../assets/fitness-image-2.jpg"
 import "./Results.css";
 
 export default function Results() {

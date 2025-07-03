@@ -1,7 +1,7 @@
 import React from "react";
 import { renderWithProviders } from "./test-utils";
 import { createMockAppState } from "./mock-factories";
-import App from "App";
+import App from "../../src/App";
 
 export const renderAppAsLoggedInUser = (userOverrides = {}, stateOverrides = {}) => {
   const mockState = createMockAppState({

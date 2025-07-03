@@ -22,6 +22,9 @@ module.exports = {
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".jsx"],
     modules: ["src", "node_modules"],
+    alias: {
+      "@": path.resolve(__dirname, "../src"), // Alias for src directory
+    }
   },
   module: {
     rules: [
@@ -42,9 +45,10 @@ module.exports = {
         test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
         use: [
           {
-            loader: "url-loader",
+            loader: "file-loader",
             options: {
-              limit: 8192,
+              name: "[name].[hash].[ext]",
+              outputPath: "assets/images/",
             },
           },
         ],

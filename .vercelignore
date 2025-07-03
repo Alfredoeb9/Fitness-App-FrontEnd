@@ -1,0 +1,5 @@
+test/
+*.test.tsx
+*.test.ts
+jest.config.js
+babel.config.js
