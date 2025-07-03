@@ -4,6 +4,7 @@ import { redirect } from "react-router-dom";
 import { useLogin } from "../hooks/useLogin";
 import { selectUserAuth } from "../app/features/AuthContext";
 import { useAppSelector } from "../app/hooks";
+import InfoIcon from "@mui/icons-material/Info";
 
 function Login() {
   const navigate = useNavigate();
@@ -11,6 +12,7 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { login2, error, isLoading } = useLogin();
+  const [show, setShow] = useState({ password: false});
 
   useEffect(() => {
     if (user !== null) {
@@ -37,12 +39,18 @@ function Login() {
       />
 
       <label>Password:</label>
-      <input
-        type="password"
-        aria-label="password"
-        onChange={(e) => setPassword(e.target.value)}
-        value={password}
-      />
+      <div className="input_Group">
+        <input
+          type={`${show.password ? "text" : "password"}`}
+          onChange={(e) => setPassword(e.target.value)}
+          value={password}
+        />
+        <span
+          onClick={() => setShow({ ...show, password: !show.password })}
+        >
+          <InfoIcon fontSize="large" />
+        </span>
+      </div>
 
       <button
         type="button"

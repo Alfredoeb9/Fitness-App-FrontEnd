@@ -160,3 +160,10 @@ form.login {
   background: #fff;
   border-radius: 4px;
 }
+
+.input_Group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
